@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>App Inbox + Web Inbox Gallery — 90 CleverTap Inbox Use Cases &amp; 16 Design Patterns · Field Guide 13</title>
+<meta name="description" content="A design-first field guide to CleverTap App Inbox and Web Inbox: 16 inbox design patterns, 90 use cases across 15 verticals, a build-vs-buy spectrum, a push-vs-inbox decision table, how stats work, and a 20-question FAQ. Fictional brands, illustrative figures, facts grounded in CleverTap docs.">
+<meta name="keywords" content="CleverTap App Inbox, Web Inbox, app inbox templates, notification inbox, message center, in-app inbox, inbox design patterns, custom key-value inbox, App Inbox TTL, push vs inbox, CleverTap inbox use cases, mobile inbox UX, customer engagement, CSM field guide">
+<meta name="author" content="SJ Neo · CleverTap CSM">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0c0f26" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://shijunneo-bot.github.io/ct-inbox-gallery/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CleverTap Field Guide Network">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="App Inbox + Web Inbox Gallery · CleverTap Field Guide 13">
+<meta property="og:description" content="16 inbox design patterns, 90 use cases across 15 verticals, a build-vs-buy spectrum, and a 20-question FAQ. The channel with a memory.">
+<meta property="og:url" content="https://shijunneo-bot.github.io/ct-inbox-gallery/">
+<meta property="og:image" content="https://shijunneo-bot.github.io/ct-inbox-gallery/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CleverTap Field Guide 13, App Inbox and Web Inbox, the channel with a memory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="App Inbox + Web Inbox Gallery · Field Guide 13">
+<meta name="twitter:description" content="16 inbox design patterns, 90 use cases, a build-vs-buy spectrum, and a 20-question FAQ.">
+<meta name="twitter:image" content="https://shijunneo-bot.github.io/ct-inbox-gallery/og-image.png">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAw1BMVEUAAADZJSXZJSXaJCTZJSXZJSXYJibZJSXZJibaJSXXJSXZJSXXGxvZJCTaJSXZJCTfICDZJCTZJSXZJibZJSXZJSXZJSXYJCTWIyPZJibYJSXXJSXZJibaJSXhHh7ZJib////aKSn+9fX87+/dOjr++vr1x8fxsbHwqaniWFjbMTHaLS3539/zubnslJTqiYnmc3PjXV3dPz/65+f64+P3z8/0wsLuoaHtmprphITzvb3rjo7neXnneHjgUlLfSEjeRUWc+FVEAAAAH3RSTlMA7Cma8cj69uWNDc8Sk1ImDzX55tCciFcs0J1ZWDcRJhWn4gAAAUZJREFUOMt9k9eagjAQhYemAhbcVdetGbqAvbv9/Z9qv2Xoif43CcyBk0xOoMTq9zSp1ZK0Xt8CnoEisQJJGTTK1kRlNdSJVft8xDhGlZ+8dpiAzjCvy/dMSEemuvHIiKSpMI1UoNOT/bVfNhV6atCm+gnx2BS0/03GNF8iBlvWRAHoUgMiHxcJ41C78EIGAc5jJuABlHT89XHNFclDS8cLurFQoAEd0QwDJkSCVjoecSYW3GWCBYZXBIXF4ZoFLXKN/la8yGybnounWsFO8m0+0+SMTlQVhM6GGpW32pvj7puVHHCdtRqe6E3koLuKSXyexd7GJofiuNnGRXTD1edq4SBG+XFTYIht6CPhLO1KYMAwWcbPR7Dfzd8vXhE5PrR2Ug8tMbwRe0I2+bopQwVDbzfiqhtQZzpWK1FUpsDTLa//GxT8AUhnYjZaLuDLAAAAAElFTkSuQmCC">
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAw1BMVEUAAADZJSXZJSXaJCTZJSXZJSXYJibZJSXZJibaJSXXJSXZJSXXGxvZJCTaJSXZJCTfICDZJCTZJSXZJibZJSXZJSXZJSXYJCTWIyPZJibYJSXXJSXZJibaJSXhHh7ZJib////aKSn+9fX87+/dOjr++vr1x8fxsbHwqaniWFjbMTHaLS3539/zubnslJTqiYnmc3PjXV3dPz/65+f64+P3z8/0wsLuoaHtmprphITzvb3rjo7neXnneHjgUlLfSEjeRUWc+FVEAAAAH3RSTlMA7Cma8cj69uWNDc8Sk1ImDzX55tCciFcs0J1ZWDcRJhWn4gAAAUZJREFUOMt9k9eagjAQhYemAhbcVdetGbqAvbv9/Z9qv2Xoif43CcyBk0xOoMTq9zSp1ZK0Xt8CnoEisQJJGTTK1kRlNdSJVft8xDhGlZ+8dpiAzjCvy/dMSEemuvHIiKSpMI1UoNOT/bVfNhV6atCm+gnx2BS0/03GNF8iBlvWRAHoUgMiHxcJ41C78EIGAc5jJuABlHT89XHNFclDS8cLurFQoAEd0QwDJkSCVjoecSYW3GWCBYZXBIXF4ZoFLXKN/la8yGybnounWsFO8m0+0+SMTlQVhM6GGpW32pvj7puVHHCdtRqe6E3koLuKSXyexd7GJofiuNnGRXTD1edq4SBG+XFTYIht6CPhLO1KYMAwWcbPR7Dfzd8vXhE5PrR2Ug8tMbwRe0I2+bopQwVDbzfiqhtQZzpWK1FUpsDTLa//GxT8AUhnYjZaLuDLAAAAAElFTkSuQmCC">
+<link rel="apple-touch-icon" sizes="180x180" href="https://clevertap.com/wp-content/uploads/2023/08/apple-touch-icon-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "App Inbox + Web Inbox Gallery \u00b7 CleverTap Field Guide 13", "headline": "The channel with a memory: a design-first guide to CleverTap App Inbox and Web Inbox", "description": "A design-first field guide to CleverTap App Inbox and Web Inbox: 16 design patterns, 90 use cases across 15 verticals, a build-vs-buy spectrum, a push-vs-inbox decision table, and a 20-question FAQ.", "url": "https://shijunneo-bot.github.io/ct-inbox-gallery/", "inLanguage": "en", "datePublished": "2026-07-21", "dateModified": "2026-07-22", "image": "https://shijunneo-bot.github.io/ct-inbox-gallery/og-image.png", "author": {"@type": "Person", "name": "SJ Neo", "jobTitle": "Enterprise Customer Success Manager"}, "about": [{"@type": "Thing", "name": "CleverTap App Inbox"}, {"@type": "Thing", "name": "CleverTap Web Inbox"}, {"@type": "Thing", "name": "Customer engagement messaging"}], "keywords": "CleverTap App Inbox, Web Inbox, inbox design patterns, app inbox use cases, push vs inbox, custom key-value inbox", "isPartOf": {"@type": "WebSite", "name": "CleverTap Field Guide Network", "url": "https://shijunneo-bot.github.io/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does an App Inbox message live on the device?", "acceptedAnswer": {"@type": "Answer", "text": "You set a Time to Live from 1 to 60 days (default 2 days), or choose Infinite so it never auto-removes. TTL counts from campaign sent time. Pick a life that matches the job: a coupon valid for a month wants a long TTL, a weekend flash sale wants a day or two."}}, {"@type": "Question", "name": "Does the message appear the instant I send it?", "acceptedAnswer": {"@type": "Answer", "text": "App Inbox messages are session-based: they are fetched on the next app launch or new session. In a Push + App Inbox campaign the push arrives instantly, but the inbox copy shows up on the next open. That is by design, so the inbox is populated when the app is active."}}, {"@type": "Question", "name": "How do unread counts and badges work?", "acceptedAnswer": {"@type": "Answer", "text": "The SDK exposes total and unread counts (getInboxMessageCount and getInboxMessageUnreadCount on Android, equivalents on iOS). You mark a message read when it is seen, and repaint your badge on the inbox-updated callback. The unread dot is driven by that read state."}}, {"@type": "Question", "name": "Is delivery per-user or per-segment?", "acceptedAnswer": {"@type": "Answer", "text": "Both. You target a segment (past behaviour, live behaviour, or a custom list) like any channel, and personalization plus custom key-value make each user's inbox look different. One user's inbox is not another's."}}, {"@type": "Question", "name": "What media and sizes are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Image (jpg, png, gif) up to 500KB, video (mp4) up to 50MB, audio (mp3) up to 5MB, at 16:9 or 1:1. For video, keep an audio track present (add a silent track if needed)."}}, {"@type": "Question", "name": "Can each CTA deep-link somewhere different?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A message carries up to two CTAs, each an Open URL (separate iOS and Android URLs) or a custom key-value action. Tapping the message body itself returns button index -1, so you can route that too."}}, {"@type": "Question", "name": "How is App Inbox set up versus Web Inbox?", "acceptedAnswer": {"@type": "Answer", "text": "App Inbox needs the mobile SDK (3.4.0+; KV buttons 3.6.1 Android / 3.7.1 iOS; shared KV across messages 5.2.0+) and a place to show the inbox UI. Web Inbox needs the Web SDK plus an Element ID: you give CleverTap a DOM node id in Setup and the bell, badge, and slide-in panel mount there."}}, {"@type": "Question", "name": "What is a custom key-value inbox, and when do I use it?", "acceptedAnswer": {"@type": "Answer", "text": "If you want a fully custom inbox look, you keep CleverTap for delivery, segmentation, TTL, and stats, and pass the message as custom key-value pairs (SDK 5.2.0+). Your app reads the payload and renders your own UI. This is the middle path between the ready-made SDK templates and building an inbox from scratch. Verify the exact SDK gate for your build with your PM."}}, {"@type": "Question", "name": "How do read and delivered stats work?", "acceptedAnswer": {"@type": "Answer", "text": "App Inbox stats report Sent (messages sent to devices), Viewed (devices that received it; Viewed/Sent), Clicks (Clicks/Sent), CTR (Click/Viewed), Converted users, plus errors and control group. There are trend, conversion, and revenue views. Each stored inbox message is counted as a user event."}}, {"@type": "Question", "name": "Can a push and an inbox message be sent together?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. In a push campaign you can tick App Inbox Delivery so the same message persists in the inbox with its own colours and Inbox TTL. The push grabs attention now; the inbox keeps a copy for when they open the app."}}, {"@type": "Question", "name": "Can I trigger my own inbox or external system from a campaign?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, through the Post Action Webhook on a push campaign: it fires to your endpoint so you can populate your own message store or your own inbox. Combined with custom key-value pairs on the payload, this is the build-your-own path."}}, {"@type": "Question", "name": "Can App Inbox be triggered by an API event?", "acceptedAnswer": {"@type": "Answer", "text": "For a standalone App Inbox campaign, a live-action message will not deliver if the qualifying event arrives via API; to trigger via API you configure it through a Journey. This limit does not apply to Push + App Inbox campaigns. Confirm current behaviour with your PM before relying on it."}}, {"@type": "Question", "name": "How do I sort messages into tabs?", "acceptedAnswer": {"@type": "Answer", "text": "Add Message Tags to a message; the tags map to tabs in your inbox UI (you name the tabs when you configure the inbox). Untagged messages fall into the default 'All' bucket. Tabs are optional."}}, {"@type": "Question", "name": "Can I personalize inbox content?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Title, body, and CTA URLs accept {{personalization}} tokens and Liquid @tags, and you can attach Recommendations to generate per-user content. You can also A/B test, split-deliver, or vary by user property."}}, {"@type": "Question", "name": "How big is the Web Inbox panel?", "acceptedAnswer": {"@type": "Answer", "text": "The default web panel is about 392 by 546 pixels on desktop, and takes full width and height on mobile. You choose how many messages it shows (5 to 50, default 15) and style the panel, header, tabs, cards, buttons, and badge from the dashboard."}}, {"@type": "Question", "name": "How much design control do I actually have?", "acceptedAnswer": {"@type": "Answer", "text": "With the SDK templates you style through a config (title, background, tab colours, tab labels on app; a full colour set on web), not free HTML. For pixel-level control you use the custom key-value path and render your own UI. So 'more design freedom' does not mean leaving CleverTap; it means moving one lane along the spectrum."}}, {"@type": "Question", "name": "What happens to messages after TTL expires?", "acceptedAnswer": {"@type": "Answer", "text": "They are automatically removed from the device once the TTL passes (counted from sent time). Infinite TTL messages stay until you remove them. Choose TTL to match how long the message stays useful."}}, {"@type": "Question", "name": "Does the inbox work offline?", "acceptedAnswer": {"@type": "Answer", "text": "The messages already fetched to the device are available offline, since App Inbox persists locally. New messages are fetched on the next session when the device is online."}}, {"@type": "Question", "name": "Which plan or packaging includes App Inbox and Web Inbox?", "acceptedAnswer": {"@type": "Answer", "text": "Channel availability depends on your CleverTap plan and packaging, which changes over time. Treat this as Verify with PM rather than a fixed answer, and check your project's entitlements before you promise a client."}}, {"@type": "Question", "name": "Where does the CSM lane stop on all this?", "acceptedAnswer": {"@type": "Answer", "text": "You own the value story: which use cases, what shelf life, which design treatment, what outcome to prove. SDK setup, identity, and payload debugging sit with the customer's engineers and CleverTap support; commercial close and packaging sit with the AE. Bring the play, route the plumbing."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "CleverTap Field Guide network", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "AMP Email", "url": "https://shijunneo-bot.github.io/amp-email-gallery/"}, {"@type": "ListItem", "position": 2, "name": "Rich Push", "url": "https://shijunneo-bot.github.io/rich-push-gallery/"}, {"@type": "ListItem", "position": 3, "name": "SMS", "url": "https://shijunneo-bot.github.io/ct-sms-field-guide/"}, {"@type": "ListItem", "position": 4, "name": "WhatsApp", "url": "https://shijunneo-bot.github.io/whatsapp-addon-gallery/"}, {"@type": "ListItem", "position": 5, "name": "Templates", "url": "https://shijunneo-bot.github.io/ct-template-gallery/"}, {"@type": "ListItem", "position": 6, "name": "Linked Content", "url": "https://shijunneo-bot.github.io/ct-linked-content-gallery/"}, {"@type": "ListItem", "position": 7, "name": "Recommendations", "url": "https://shijunneo-bot.github.io/ct-recommendations-gallery/"}, {"@type": "ListItem", "position": 8, "name": "Geofencing", "url": "https://shijunneo-bot.github.io/ct-geofencing-gallery/"}, {"@type": "ListItem", "position": 9, "name": "Reminders", "url": "https://shijunneo-bot.github.io/ct-reminders-gallery/"}, {"@type": "ListItem", "position": 10, "name": "Promos", "url": "https://shijunneo-bot.github.io/ct-promos-gallery/"}, {"@type": "ListItem", "position": 11, "name": "Native Display", "url": "https://shijunneo-bot.github.io/ct-native-display-gallery/"}, {"@type": "ListItem", "position": 12, "name": "Product Experiences", "url": "https://shijunneo-bot.github.io/ct-product-experiences-gallery/"}, {"@type": "ListItem", "position": 13, "name": "App + Web Inbox", "url": "https://shijunneo-bot.github.io/ct-inbox-gallery/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Field Guide Network", "item": "https://shijunneo-bot.github.io/"}, {"@type": "ListItem", "position": 2, "name": "App + Web Inbox (Field Guide 13)", "item": "https://shijunneo-bot.github.io/ct-inbox-gallery/"}]}</script>
+<style>
+
+*{box-sizing:border-box}
+:root{
+  --brand:#293378; --coral:#ff6a5a; --amber:#f4ba59;
+  --font-d:"Fraunces",Georgia,serif;
+  --font-b:"Hanken Grotesk",system-ui,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,monospace;
+  --r:16px; --rs:10px; --maxw:1180px;
+  --sp:clamp(64px,9vw,120px);
+}
+html[data-theme="night"]{
+  --bg:#0c0f26; --bg2:#12163a; --paper:#171c44; --paper2:#1e2450;
+  --ink:#f0f1fb; --ink2:#c3c7ea; --muted:#9498c4; --line:rgba(255,255,255,.10);
+  --line2:rgba(255,255,255,.16); --accent:#ff7a68; --accent-ink:#1a0f0d;
+  --gold:#f6c25f; --ok:#69d6a6; --shadow:0 20px 60px -30px rgba(0,0,0,.8);
+  --glass:rgba(23,28,68,.72);
+}
+html[data-theme="day"]{
+  --bg:#f6f1e7; --bg2:#efe7d6; --paper:#fffdf8; --paper2:#f7f1e4;
+  --ink:#191c3a; --ink2:#33385f; --muted:#5c6180; --line:rgba(25,28,58,.12);
+  --line2:rgba(25,28,58,.20); --accent:#d13a2c; --accent-ink:#fff;
+  --gold:#946517; --ok:#1a8f5f; --shadow:0 24px 60px -34px rgba(41,51,120,.5);
+  --glass:rgba(255,253,248,.78);
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-b);
+  font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* ambient */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ambient::before{content:"";position:absolute;inset:-20%;
+  background:radial-gradient(50% 40% at 15% 12%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%),
+             radial-gradient(46% 42% at 88% 6%,color-mix(in srgb,var(--gold) 18%,transparent),transparent 70%),
+             radial-gradient(60% 50% at 70% 96%,color-mix(in srgb,var(--brand) 30%,transparent),transparent 72%);
+  opacity:.5;filter:blur(8px)}
+.ambient .grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+main,header,footer{position:relative;z-index:1}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);
+  padding:10px 16px;border-radius:8px;z-index:100;font-weight:600}
+.skip:focus{left:16px}
+h1,h2,h3{font-family:var(--font-d);font-weight:600;line-height:1.04;letter-spacing:-.02em;margin:0}
+.eyebrow{font-family:var(--font-m);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:500;margin:0 0 14px}
+.lead{color:var(--ink2);font-size:clamp(17px,2vw,20px);max-width:64ch}
+.muted{color:var(--muted)}
+section{padding:var(--sp) 0;border-top:1px solid var(--line)}
+.section-head{max-width:70ch;margin-bottom:44px}
+.section-head h2{font-size:clamp(30px,4.4vw,52px)}
+.section-head p{margin-top:16px}
+.illus{font-family:var(--font-m);font-size:11px;letter-spacing:.06em;color:var(--muted);
+  border:1px dashed var(--line2);border-radius:999px;padding:3px 9px;display:inline-block}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:40;background:var(--glass);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
+.brandmark{display:flex;align-items:center;gap:10px;font-weight:700;font-family:var(--font-d)}
+.brandmark .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.topbar nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.topbar nav a{font-size:13.5px;color:var(--ink2);text-decoration:none;padding:8px 10px;border-radius:8px}
+.topbar nav a:hover{background:var(--paper);color:var(--ink)}
+.tgl{min-height:40px;min-width:44px;display:inline-flex;align-items:center;gap:8px;
+  background:var(--paper);border:1px solid var(--line2);color:var(--ink);
+  border-radius:999px;padding:6px 14px;cursor:pointer;font-family:var(--font-b);font-weight:600;font-size:13.5px}
+.tgl:hover{border-color:var(--accent)}
+
+/* hero */
+.hero{padding-top:clamp(48px,7vw,90px);padding-bottom:20px}
+.hero .kicker{font-family:var(--font-m);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-size:clamp(44px,8vw,104px);margin:14px 0 0;letter-spacing:-.035em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .sub{margin-top:26px;max-width:60ch;font-size:clamp(18px,2.2vw,23px);color:var(--ink2)}
+.hero .meta{margin-top:30px;display:flex;gap:10px;flex-wrap:wrap}
+.tag{font-family:var(--font-m);font-size:12px;letter-spacing:.04em;border:1px solid var(--line2);
+  color:var(--ink2);padding:7px 12px;border-radius:999px;background:var(--paper)}
+
+/* signature stage */
+.stage{margin-top:52px;position:relative;height:clamp(320px,42vw,440px);
+  border:1px solid var(--line);border-radius:24px;overflow:hidden;background:
+  linear-gradient(180deg,var(--bg2),var(--bg))}
+.stage .lane{position:absolute;top:0;bottom:0;width:33.333%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+.stage .lane .cap{font-family:var(--font-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);position:absolute;top:18px}
+.stage .l1{left:0} .stage .l2{left:33.333%} .stage .l3{left:66.666%;border-left:1px solid var(--line)}
+.stage .l3{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.chip-msg{width:min(74%,240px);background:var(--paper);border:1px solid var(--line2);border-radius:14px;
+  padding:12px 14px;box-shadow:var(--shadow);will-change:transform,opacity}
+.chip-msg .t{font-weight:700;font-size:13.5px}
+.chip-msg .b{font-size:12px;color:var(--muted);margin-top:3px}
+.chip-msg .badge{display:inline-block;font-family:var(--font-m);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;padding:2px 7px;border-radius:999px;margin-bottom:7px}
+.eph{animation:none}
+.stage.play .eph{animation:flycycle 5s cubic-bezier(.4,0,.2,1) infinite}
+.stage.play .eph.d2{animation-delay:.45s}
+.stage.play .keep{animation:settle .9s cubic-bezier(.2,.8,.2,1) forwards}
+.stage.play .keep.k2{animation-delay:.12s}
+.stage.play .keep.k3{animation-delay:.24s}
+@keyframes flycycle{
+  0%,18%{transform:translateY(0) rotate(0);opacity:1}
+  34%{transform:translateY(-48px) rotate(-7deg);opacity:0}
+  35%{transform:translateY(20px) rotate(0);opacity:0}
+  52%,100%{transform:translateY(0) rotate(0);opacity:1}}
+@keyframes settle{0%{transform:translateY(16px);opacity:0}100%{transform:translateY(0);opacity:1}}
+.stage .note{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--font-m);
+  font-size:11.5px;letter-spacing:.05em;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){
+  .stage.play .eph{animation:none;opacity:.28}
+  .stage.play .keep{animation:none;opacity:1}
+}
+@media (max-width:720px){
+  .topbar nav{display:none}
+  .stage .lane .cap{font-size:9px} .chip-msg{width:88%;padding:9px 10px}
+  .chip-msg .t{font-size:12px}
+}
+
+/* family band */
+.family{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.family .pill{font-family:var(--font-m);font-size:12px;text-decoration:none;color:var(--ink2);
+  border:1px solid var(--line2);border-radius:999px;padding:8px 13px;background:var(--paper);
+  display:inline-flex;gap:7px;align-items:center;min-height:38px}
+.family .pill:hover{border-color:var(--accent);color:var(--ink)}
+.family .pill .n{color:var(--muted);font-size:11px}
+.family .pill[aria-current="page"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.family .pill[aria-current="page"] .n{color:var(--accent-ink);opacity:.8}
+
+/* generic cards */
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:980px){.g3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:660px){.g3,.g2{grid-template-columns:1fr}}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+
+/* controls */
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;align-items:center}
+.filt{min-height:40px;background:var(--paper);border:1px solid var(--line2);color:var(--ink2);
+  border-radius:999px;padding:8px 14px;cursor:pointer;font-family:var(--font-b);font-weight:600;font-size:13.5px}
+.filt[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filt:hover{border-color:var(--accent)}
+.count{font-family:var(--font-m);font-size:12.5px;color:var(--muted);margin-left:auto}
+
+/* treatments */
+.trt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.trt .mocks{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--bg2);border-bottom:1px solid var(--line)}
+.trt .mockcol{padding:18px 14px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.trt .mockcol:first-child{border-right:1px solid var(--line)}
+.trt .mlabel{font-family:var(--font-m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.trt .body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column;gap:10px}
+.trt h3{font-size:22px}
+.trt .when{font-size:14px;color:var(--ink2)}
+.trt .map{margin-top:auto;font-family:var(--font-m);font-size:11.5px;color:var(--gold);
+  border-top:1px solid var(--line);padding-top:12px}
+.trt .map b{color:var(--ink2);font-weight:500}
+
+/* device mockups (built in JS) */
+.phone{width:150px;border-radius:20px;border:1px solid var(--line2);background:var(--bg);
+  padding:8px 7px 12px;box-shadow:var(--shadow)}
+.phone .notch{width:38px;height:4px;border-radius:9px;background:var(--line2);margin:2px auto 8px}
+.phone .screen{background:var(--paper);border-radius:12px;overflow:hidden;min-height:150px}
+.phone.wire .screen{background:repeating-linear-gradient(135deg,var(--bg2),var(--bg2) 6px,var(--paper2) 6px,var(--paper2) 12px)}
+.ib-hd{font-family:var(--font-m);font-size:8px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);padding:8px 9px 6px;border-bottom:1px solid var(--line)}
+.ib-tabs{display:flex;gap:4px;padding:6px 8px;border-bottom:1px solid var(--line)}
+.ib-tabs span{font-size:8px;padding:3px 7px;border-radius:999px;background:var(--bg2);color:var(--muted)}
+.ib-tabs span.on{color:var(--accent-ink)}
+.ib-row{padding:8px 9px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:flex-start}
+.ib-ic{width:26px;height:26px;border-radius:7px;flex:0 0 auto}
+.ib-ic.round{border-radius:50%}
+.ib-tx{min-width:0;flex:1}
+.ib-tt{font-size:9.5px;font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ib-bd{font-size:8px;color:var(--muted);line-height:1.3;margin-top:2px}
+.ib-un{width:6px;height:6px;border-radius:50%;flex:0 0 auto;margin-top:3px}
+.ib-media{height:44px;margin:0}
+.ib-cta{display:flex;gap:4px;padding:6px 9px}
+.ib-cta b{font-size:7.5px;font-weight:700;padding:4px 6px;border-radius:6px;color:#fff}
+.ib-card{margin:8px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.ib-dots{display:flex;gap:3px;justify-content:center;padding:4px}
+.ib-dots i{width:4px;height:4px;border-radius:50%;background:var(--line2)}
+.ib-dots i.on{background:var(--accent)}
+.browser{width:190px;border-radius:12px;overflow:hidden;border:1px solid var(--line2);background:var(--bg);box-shadow:var(--shadow)}
+.browser .bar{height:20px;background:var(--bg2);display:flex;align-items:center;gap:4px;padding:0 8px;border-bottom:1px solid var(--line)}
+.browser .bar i{width:6px;height:6px;border-radius:50%;background:var(--line2)}
+.browser .body{position:relative;min-height:150px;background:var(--paper2)}
+.browser .bell{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:50%;
+  background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:9px}
+.browser .bell b{position:absolute;top:-4px;right:-4px;font-size:7px;color:#fff;background:var(--accent);border-radius:999px;padding:1px 3px}
+.wpanel{position:absolute;top:30px;right:8px;width:120px;border-radius:8px;overflow:hidden;
+  border:1px solid var(--line2);background:var(--paper);box-shadow:var(--shadow)}
+.wpanel .wh{font-size:8px;font-weight:700;color:#fff;padding:5px 7px}
+
+/* use-case cards */
+.uc{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  cursor:pointer;text-align:left;font:inherit;color:inherit;display:flex;flex-direction:column;
+  transition:transform .18s ease,border-color .18s ease;padding:0}
+.uc:hover{transform:translateY(-3px);border-color:var(--accent)}
+.uc .top{display:flex;gap:14px;padding:16px 16px 8px}
+.uc .mini{flex:0 0 auto}
+.uc .txt{min-width:0}
+.uc .vt{font-family:var(--font-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.uc .br{font-weight:700;font-size:13px;margin-top:1px}
+.uc h4{font-family:var(--font-d);font-size:18px;margin:6px 0 0;line-height:1.12}
+.uc .foot{margin-top:auto;display:flex;gap:6px;align-items:center;padding:12px 16px 16px;flex-wrap:wrap}
+.tchip{font-family:var(--font-m);font-size:10px;letter-spacing:.04em;padding:4px 8px;border-radius:999px;
+  background:var(--bg2);color:var(--ink2);border:1px solid var(--line)}
+.uc .more{margin-left:auto;font-family:var(--font-m);font-size:10.5px;color:var(--accent)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:60;display:none;align-items:flex-start;justify-content:center;
+  padding:5vh 18px;overflow:auto}
+.modal.open{display:flex}
+.modal .scrim{position:fixed;inset:0;background:rgba(4,6,20,.66);backdrop-filter:blur(4px)}
+.sheet{position:relative;max-width:760px;width:100%;background:var(--bg);border:1px solid var(--line2);
+  border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:5vh}
+.sheet .hd{display:flex;gap:16px;align-items:flex-start;padding:22px 24px;border-bottom:1px solid var(--line);
+  background:var(--paper)}
+.sheet .hd .txt{flex:1;min-width:0}
+.sheet .hd h3{font-size:26px;margin-top:6px}
+.sheet .x{min-width:44px;min-height:44px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);
+  color:var(--ink);cursor:pointer;font-size:18px;flex:0 0 auto}
+.sheet .x:hover{border-color:var(--accent)}
+.sheet .grid5{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-bottom:1px solid var(--line)}
+.sheet .cell{padding:16px 24px;border-bottom:1px solid var(--line)}
+.sheet .cell:nth-child(odd){border-right:1px solid var(--line)}
+.sheet .cell .k{font-family:var(--font-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+.sheet .cell .v{font-size:14.5px;color:var(--ink2)}
+.sheet .body{padding:22px 24px;display:grid;gap:20px}
+.sheet .why{font-size:15.5px;color:var(--ink)}
+.sheet .why .q{font-family:var(--font-d);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.kpis{display:flex;gap:8px;flex-wrap:wrap}
+.kpi{font-family:var(--font-m);font-size:11.5px;padding:6px 11px;border-radius:999px;
+  background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ink);border:1px solid color-mix(in srgb,var(--ok) 35%,transparent)}
+.codeblock{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.codeblock .ch{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-bottom:1px solid var(--line);
+  font-family:var(--font-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.codeblock pre{margin:0;padding:14px;overflow:auto;font-family:var(--font-m);font-size:12.5px;line-height:1.55;color:var(--ink2)}
+.copy{min-height:32px;background:var(--paper);border:1px solid var(--line2);color:var(--ink2);border-radius:8px;
+  padding:5px 11px;cursor:pointer;font-family:var(--font-m);font-size:11px}
+.copy:hover{border-color:var(--accent);color:var(--ink)}
+.copy.done{color:var(--ok);border-color:var(--ok)}
+.sheet .big{display:flex;justify-content:center;padding:8px 0 4px}
+
+/* three-lane build-vs-buy */
+.lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+@media (max-width:900px){.lanes{grid-template-columns:1fr}}
+.lane-c{padding:26px 24px;background:var(--paper);border-right:1px solid var(--line)}
+.lane-c:last-child{border-right:none}
+.lane-c.hero-lane{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 12%,var(--paper)),var(--paper))}
+.lane-c .tagline{font-family:var(--font-m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lane-c.hero-lane .tagline{color:var(--accent)}
+.lane-c h3{font-size:24px;margin:8px 0 4px}
+.lane-c .oneline{font-size:14.5px;color:var(--ink2);min-height:44px}
+.lane-c ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.lane-c li{font-size:14px;padding-left:22px;position:relative;color:var(--ink2)}
+.lane-c li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.lane-c .own{margin-top:16px;font-family:var(--font-m);font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.starflag{display:inline-block;font-family:var(--font-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--accent);color:var(--accent-ink);padding:3px 8px;border-radius:999px;margin-bottom:10px}
+
+/* trigger paths */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+@media (max-width:760px){.paths{grid-template-columns:1fr}}
+.path{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.path .lbl{font-family:var(--font-m);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.path h3{font-size:20px}
+.path p{font-size:14.5px;color:var(--ink2);margin:8px 0 0}
+.path .flow{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap;font-family:var(--font-m);font-size:11px;color:var(--muted)}
+.path .flow b{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:6px 9px;color:var(--ink2);font-weight:500}
+.path .flow .arr{color:var(--accent)}
+
+/* table */
+.tablewrap{border:1px solid var(--line);border-radius:var(--r);overflow:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+thead th{font-family:var(--font-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--paper)}
+tbody tr:hover{background:var(--paper)}
+td:first-child,th:first-child{font-weight:600;color:var(--ink)}
+.col-inbox{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+
+/* anatomy */
+.anatomy{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:860px){.anatomy{grid-template-columns:1fr}}
+.anat{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.anat h3{font-size:20px;margin-bottom:6px}
+.anat .parts{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.anat .parts li{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);cursor:default}
+.anat .parts li:hover{border-color:var(--accent)}
+.anat .parts .nm{font-weight:700;font-size:13.5px}
+.anat .parts .ds{font-size:12.5px;color:var(--muted);margin-top:2px}
+.anat .parts .who{font-family:var(--font-m);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 7px;border-radius:999px;flex:0 0 auto;margin-top:1px}
+.who.dash{background:color-mix(in srgb,var(--gold) 20%,transparent);color:var(--ink)}
+.who.code{background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--ink)}
+.anat .legend{display:flex;gap:14px;margin-top:14px;font-size:11.5px;color:var(--muted);flex-wrap:wrap}
+.anat .legend b{font-family:var(--font-m);font-weight:500}
+
+/* stats */
+.statrow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media (max-width:860px){.statrow{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--rs);padding:16px}
+.stat .m{font-family:var(--font-d);font-size:19px}
+.stat .f{font-family:var(--font-m);font-size:11px;color:var(--muted);margin-top:6px}
+
+/* faq */
+.faq details{border:1px solid var(--line);border-radius:12px;background:var(--paper);margin-bottom:10px;overflow:hidden}
+.faq summary{cursor:pointer;padding:16px 20px;font-weight:600;font-size:15.5px;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--font-m);color:var(--accent);font-size:20px;flex:0 0 auto}
+.faq details[open] summary::after{content:"–"}
+.faq .a{padding:0 20px 18px;color:var(--ink2);font-size:14.5px;line-height:1.65}
+.verifyflag{font-family:var(--font-m);font-size:10px;color:var(--gold)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:48px 0 60px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end}
+footer .big{font-family:var(--font-d);font-size:clamp(24px,4vw,40px);color:var(--ink);max-width:20ch;line-height:1.05}
+footer a.plink{color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--line2)}
+
+/* scrollspy nav active */
+.topbar nav a.active{background:var(--paper);color:var(--ink)}
+.topbar nav a.active::after{content:"";display:block;height:2px;background:var(--accent);border-radius:2px;margin-top:3px}
+
+/* key facts summary (AEO + human skim) */
+.keyfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+@media (max-width:860px){.keyfacts{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.keyfacts{grid-template-columns:1fr}}
+.kf{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.kf .kfk{font-family:var(--font-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.kf .kfv{font-size:14px;color:var(--ink2);line-height:1.5}
+.kf .kfv b{color:var(--ink);font-family:var(--font-d);font-weight:600}
+
+/* card mini mockup framing (breathing room) */
+.uc .mini{flex:0 0 auto;border-radius:12px;overflow:hidden;background:var(--bg2);border:1px solid var(--line);
+  display:flex;align-items:flex-start;justify-content:center;padding:12px 10px;max-height:184px}
+.uc .mini .phone{width:132px;box-shadow:none}
+
+/* back to top */
+.totop{position:fixed;right:20px;bottom:20px;z-index:45;width:48px;height:48px;border-radius:50%;
+  background:var(--accent);color:var(--accent-ink);border:none;cursor:pointer;font-size:20px;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .3s ease,transform .3s ease;display:flex;align-items:center;justify-content:center}
+.totop.show{opacity:1;pointer-events:auto;transform:none}
+.totop:hover{filter:brightness(1.06)}
+
+/* intro splash (merged preview) */
+.splash{position:fixed;inset:0;z-index:80;background:var(--bg);overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
+  transition:opacity .7s ease,visibility .7s ease}
+.splash.gone{opacity:0;visibility:hidden;pointer-events:none}
+.splash .sbg{position:absolute;inset:-20%;opacity:.6;filter:blur(6px);
+  background:radial-gradient(46% 40% at 18% 14%,color-mix(in srgb,var(--accent) 26%,transparent),transparent 70%),
+             radial-gradient(42% 40% at 86% 8%,color-mix(in srgb,var(--gold) 20%,transparent),transparent 70%),
+             radial-gradient(60% 55% at 72% 98%,color-mix(in srgb,var(--brand) 44%,transparent),transparent 72%)}
+.splash .swrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:40px 32px;width:100%}
+.splash .skick{font-family:var(--font-m);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);animation:rise .8s ease .1s both}
+.splash .shead{font-family:var(--font-d);font-weight:600;font-size:clamp(46px,10vw,120px);line-height:.98;letter-spacing:-.04em;margin-top:16px;animation:rise .9s ease .2s both}
+.splash .shead em{font-style:italic;color:var(--accent)}
+.splash .ssub{margin-top:26px;max-width:56ch;font-size:clamp(17px,2.2vw,22px);color:var(--ink2);animation:rise .9s ease .35s both}
+.splash .stiles{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;animation:rise .9s ease .5s both}
+.splash .stile{border:1px solid var(--line);border-radius:14px;padding:13px 18px;background:color-mix(in srgb,var(--paper) 72%,transparent);backdrop-filter:blur(8px)}
+.splash .stile b{font-family:var(--font-d);font-size:26px;display:block}
+.splash .stile span{font-family:var(--font-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.splash .senter{margin-top:38px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;animation:rise .9s ease .65s both}
+.splash .sbtn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);
+  text-decoration:none;font-family:var(--font-b);font-weight:700;font-size:17px;padding:15px 26px;border-radius:999px;
+  border:none;cursor:pointer;box-shadow:0 20px 50px -20px color-mix(in srgb,var(--accent) 70%,transparent);transition:transform .2s ease}
+.splash .sbtn:hover{transform:translateY(-2px)}
+.splash .shint{font-family:var(--font-m);font-size:12px;color:var(--muted)}
+.splash .shint kbd{font-family:var(--font-m);background:var(--paper);border:1px solid var(--line2);border-radius:6px;padding:2px 8px;color:var(--ink2)}
+.splash .stoggle{position:absolute;top:20px;right:24px;z-index:4}
+.splash .sfloat{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.splash .smc{position:absolute;width:190px;background:color-mix(in srgb,var(--paper) 82%,transparent);
+  border:1px solid var(--line);border-radius:14px;padding:12px 14px;backdrop-filter:blur(6px);box-shadow:0 20px 60px -30px #000}
+.splash .smc .sb{font-family:var(--font-m);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:999px;display:inline-block;margin-bottom:7px;background:var(--accent);color:var(--accent-ink)}
+.splash .smc .st{font-weight:700;font-size:13px}.splash .smc .sd{font-size:11px;color:var(--muted);margin-top:2px}
+.splash .f1{top:16%;right:9%;--r:5deg}.splash .f2{top:41%;right:4%;--r:-4deg}.splash .f3{bottom:15%;right:12%;--r:3deg}
+.splash .smc{animation:sbob 6s ease-in-out infinite;transform:rotate(var(--r))}
+.splash .f2{animation-delay:1.2s}.splash .f3{animation-delay:.6s}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes sbob{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-9px) rotate(var(--r))}}
+body.splash-on{overflow:hidden}
+@media (max-width:820px){.splash .sfloat{display:none}}
+@media (prefers-reduced-motion:reduce){
+  .splash .skick,.splash .shead,.splash .ssub,.splash .stiles,.splash .senter{opacity:1;animation:none}
+  .splash .smc{animation:none}
+  .splash{transition:none}
+}
+
+</style>
+</head>
+<body><a class="skip" href="#gallery">Skip to the gallery</a>
+<div class="splash" id="splash" role="dialog" aria-label="Field Guide 13 intro" aria-modal="true">
+  <div class="sbg"></div>
+  <button class="tgl stoggle" id="sTheme" aria-label="Switch colour theme"><span id="sThemeIcon">☾</span><span id="sThemeTxt">Night</span></button>
+  <div class="sfloat" aria-hidden="true">
+    <div class="smc f1"><span class="sb">Kept</span><div class="st">Bill ready to pay</div><div class="sd">Waits until it's done</div></div>
+    <div class="smc f2"><span class="sb">Kept</span><div class="st">Coupon in your wallet</div><div class="sd">Sits until it's used</div></div>
+    <div class="smc f3"><span class="sb">Kept</span><div class="st">Order on the way</div><div class="sd">There when you look</div></div>
+  </div>
+  <div class="swrap">
+    <div class="skick">CleverTap Field Guide · No.13</div>
+    <div class="shead">The channel<br>with a <em>memory</em>.</div>
+    <p class="ssub">A design-first guide to App Inbox and Web Inbox. Sixteen ways to shape it, ninety use cases to steal, and an honest map of when to use it, extend it, or build your own.</p>
+    <div class="stiles">
+      <div class="stile"><b>16</b><span>design patterns</span></div>
+      <div class="stile"><b>90</b><span>use cases</span></div>
+      <div class="stile"><b>15</b><span>verticals</span></div>
+      <div class="stile"><b>3</b><span>build-vs-buy lanes</span></div>
+    </div>
+    <div class="senter">
+      <button class="sbtn" id="sEnter">Open the field guide <span aria-hidden="true">&rarr;</span></button>
+      <span class="shint">or press <kbd>Enter</kbd></span>
+    </div>
+  </div>
+</div>
+<noscript><style>.splash{display:none!important}</style></noscript>
+<div class="ambient"><div class="grain"></div></div>
+<div class="topbar"><div class="wrap">
+  <div class="brandmark"><span class="dot"></span> Field Guide 13</div>
+  <nav aria-label="Sections"><a href="#explorer">Design explorer</a><a href="#anatomy">Anatomy</a><a href="#spectrum">Build vs buy</a><a href="#pairing">Push + inbox</a><a href="#decide">Decide</a><a href="#gallery">90 use cases</a><a href="#stats">Stats</a><a href="#faq">FAQ</a></nav>
+  <button class="tgl" id="themeBtn" aria-label="Switch colour theme"><span id="themeIcon">☾</span><span id="themeTxt">Night</span></button>
+</div></div>
+<main>
+<header class="hero" id="top"><div class="wrap">
+  <div class="kicker">CleverTap Field Guide · No.13</div>
+  <h1>The channel<br>with a <em>memory</em>.</h1>
+  <p class="sub">Push disappears. SMS scrolls away. The inbox waits. This is a design-first guide to CleverTap App Inbox and Web Inbox: how to shape it, where it earns its place, and where the line runs between using it, extending it, and building your own.</p>
+  <div class="meta"><span class="tag">16 design treatments</span><span class="tag">90 use cases</span><span class="tag">15 verticals</span><span class="tag">App + Web Inbox</span><span class="tag">Build vs buy spectrum</span></div>
+
+  <div class="stage" id="stage" aria-hidden="true">
+    <div class="lane l1"><span class="cap">Push</span>
+      <div class="chip-msg eph"><span class="badge" style="background:color-mix(in srgb,var(--gold) 30%,transparent);color:var(--ink)">Now</span><div class="t">Flash sale is live</div><div class="b">Taps once, then it's gone</div></div>
+    </div>
+    <div class="lane l2"><span class="cap">SMS</span>
+      <div class="chip-msg eph d2"><span class="badge" style="background:color-mix(in srgb,var(--brand) 40%,transparent);color:#fff">SMS</span><div class="t">Your code: 4821</div><div class="b">Read, then buried</div></div>
+    </div>
+    <div class="lane l3"><span class="cap">App Inbox</span>
+      <div class="chip-msg keep"><span class="badge" style="background:var(--accent);color:var(--accent-ink)">Kept</span><div class="t">Bill ready to pay</div><div class="b">Waits until it's done</div></div>
+      <div class="chip-msg keep k2"><span class="badge" style="background:var(--accent);color:var(--accent-ink)">Kept</span><div class="t">Coupon in your wallet</div><div class="b">Sits until it's used</div></div>
+      <div class="chip-msg keep k3"><span class="badge" style="background:var(--accent);color:var(--accent-ink)">Kept</span><div class="t">Order on the way</div><div class="b">There when you look</div></div>
+    </div>
+    <div class="note">Scroll: ephemeral channels fly off, inbox messages settle and stay.</div>
+  </div>
+</div></header>
+
+<section id="family" style="padding-top:56px;padding-bottom:56px">
+  <div class="wrap">
+    <p class="eyebrow">The field guide network</p>
+    <div class="family"><a class="pill" href="https://shijunneo-bot.github.io/amp-email-gallery/"><span class="n">01</span>AMP Email</a><a class="pill" href="https://shijunneo-bot.github.io/rich-push-gallery/"><span class="n">02</span>Rich Push</a><a class="pill" href="https://shijunneo-bot.github.io/ct-sms-field-guide/"><span class="n">03</span>SMS</a><a class="pill" href="https://shijunneo-bot.github.io/whatsapp-addon-gallery/"><span class="n">04</span>WhatsApp</a><a class="pill" href="https://shijunneo-bot.github.io/ct-template-gallery/"><span class="n">05</span>Templates</a><a class="pill" href="https://shijunneo-bot.github.io/ct-linked-content-gallery/"><span class="n">06</span>Linked Content</a><a class="pill" href="https://shijunneo-bot.github.io/ct-recommendations-gallery/"><span class="n">07</span>Recommendations</a><a class="pill" href="https://shijunneo-bot.github.io/ct-geofencing-gallery/"><span class="n">08</span>Geofencing</a><a class="pill" href="https://shijunneo-bot.github.io/ct-reminders-gallery/"><span class="n">09</span>Reminders</a><a class="pill" href="https://shijunneo-bot.github.io/ct-promos-gallery/"><span class="n">10</span>Promos</a><a class="pill" href="https://shijunneo-bot.github.io/ct-native-display-gallery/"><span class="n">11</span>Native Display</a><a class="pill" href="https://shijunneo-bot.github.io/ct-product-experiences-gallery/"><span class="n">12</span>Product Experiences</a><a class="pill" aria-current="page" href="https://shijunneo-bot.github.io/ct-inbox-gallery/"><span class="n">13</span>App + Web Inbox</a></div>
+  </div>
+</section>
+
+<section id="keyfacts" style="padding-top:10px;padding-bottom:60px;border-top:none">
+  <div class="wrap">
+    <p class="eyebrow reveal">In one screen</p>
+    <div class="keyfacts">
+      <div class="kf reveal"><div class="kfk">What it is</div><div class="kfv"><b>App Inbox</b> and <b>Web Inbox</b> are CleverTap's persistent message centres: messages that stay on the device or in a web panel, unlike a push that disappears.</div></div>
+      <div class="kf reveal"><div class="kfk">Templates</div><div class="kfv"><b>Four app templates</b> (Simple, Icon, Carousel with content, Carousel image-only), plus a custom key-value path for your own UI.</div></div>
+      <div class="kf reveal"><div class="kfk">Shelf life</div><div class="kfv">App Inbox <b>TTL is 1 to 60 days</b> (default 2) or Infinite. Web Inbox shows <b>5 to 50 messages</b> (default 15).</div></div>
+      <div class="kf reveal"><div class="kfk">Design control</div><div class="kfv">SDK templates style via a <b>config</b>; full pixel control uses <b>custom key-value</b> while CleverTap keeps delivery and stats.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="explorer"><a id="explorer-a"></a><div class="wrap">
+  <div class="section-head reveal">
+    <p class="eyebrow">01 · Design explorer</p>
+    <h2>Sixteen ways to shape an inbox.</h2>
+    <p class="lead">The inbox is not one look. Same plumbing, very different rooms. Each treatment pairs a bare structure (left) with a fictional brand execution (right), tells you when to reach for it, and maps it to the CleverTap template that delivers it.</p>
+  </div>
+  <div class="controls reveal" id="trtControls" role="group" aria-label="Filter treatments">
+    <button class="filt" data-tf="all" aria-pressed="true">All 16</button>
+    <button class="filt" data-tf="app" aria-pressed="false">App Inbox</button>
+    <button class="filt" data-tf="web" aria-pressed="false">Web Inbox</button>
+    <span class="count" id="trtCount"></span>
+  </div>
+  <div class="grid g3" id="trtGrid"></div>
+</div></section>
+
+<section id="anatomy"><div class="wrap">
+  <div class="section-head reveal">
+    <p class="eyebrow">02 · Anatomy</p>
+    <h2>What you set in the dashboard, what your code owns.</h2>
+    <p class="lead">Before you design, know which levers are yours in the campaign editor and which live in the app. Gold is dashboard-configurable. Coral is code-side, set by the SDK or your own render.</p>
+  </div>
+  <div class="anatomy">
+    <div class="anat reveal">
+      <h3>App Inbox message</h3>
+      <p class="muted" style="font-size:13.5px">A card that persists on the device. Styled through a config, not free HTML.</p>
+      <ul class="parts"><li><span class="who code">code</span><div><div class="nm">Icon / thumbnail</div><div class="ds">Rendered by your SDK cell; source set via template or KV.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Title</div><div class="ds">Dashboard field, supports {{personalization}} and Liquid @tags.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Body / message</div><div class="ds">Dashboard field, personalizable.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Media</div><div class="ds">Image (500KB), GIF, MP4 (50MB), MP3 (5MB), 16:9 or 1:1.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">CTAs (up to 2)</div><div class="ds">Open URL (iOS/Android) or custom key-value; body tap = index -1.</div></div></li><li><span class="who code">code</span><div><div class="nm">Timestamp</div><div class="ds">Rendered by the SDK from message time.</div></div></li><li><span class="who code">code</span><div><div class="nm">Unread dot</div><div class="ds">Driven by read/unread state you mark via SDK.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Tags / tabs</div><div class="ds">Message Tags classify into inbox tabs; default bucket &#x27;All&#x27;.</div></div></li></ul>
+      <div class="legend"><span><b style="color:var(--gold)">■</b> Dashboard field</span><span><b style="color:var(--accent)">■</b> Code / SDK side</span></div>
+    </div>
+    <div class="anat reveal">
+      <h3>Web Inbox panel</h3>
+      <p class="muted" style="font-size:13.5px">A bell, a badge, and a slide-in panel that mount into a DOM node you own.</p>
+      <ul class="parts"><li><span class="who dash">dash</span><div><div class="nm">Bell + badge</div><div class="ds">Notification badge, colour set in Setup; shows unread count.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Panel header</div><div class="ds">Title (default &#x27;Notifications&#x27;), colours in Style tab.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Category tabs</div><div class="ds">Optional &#x27;Add categories&#x27; with per-tab colours.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Message card</div><div class="ds">Title, body, media, up to 2 buttons; card colours in Style.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Unread marker</div><div class="ds">Marker colour configurable (e.g. #FF5353).</div></div></li><li><span class="who code">code</span><div><div class="nm">Element ID anchor</div><div class="ds">You supply the DOM node id; the panel mounts there.</div></div></li><li><span class="who dash">dash</span><div><div class="nm">Messages shown</div><div class="ds">Number of messages 5 to 50 (default 15).</div></div></li></ul>
+      <div class="legend"><span><b style="color:var(--gold)">■</b> Dashboard field</span><span><b style="color:var(--accent)">■</b> Code / SDK side</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="spectrum"><div class="wrap">
+  <div class="section-head reveal">
+    <p class="eyebrow">03 · Build vs buy</p>
+    <h2>More design freedom is a lane, not an exit.</h2>
+    <p class="lead">When a client says "we want full control of the look," the instinct is to think they must leave CleverTap and build their own inbox. They rarely need to. It is a spectrum, and the middle lane keeps the orchestration while giving the design team its canvas.</p>
+  </div>
+  <div class="lanes reveal">
+    <div class="lane-c">
+      <div class="tagline">Lane 1 · Full buy</div>
+      <h3>Use the SDK templates</h3>
+      <div class="oneline">CleverTap renders the inbox. You configure it.</div>
+      <ul>
+        <li>Four ready templates: Simple, Icon, Carousel with content, Carousel image-only</li>
+        <li>Styled via a config (title, background, tab colours, labels), not free HTML</li>
+        <li>Fastest to ship; zero custom UI work</li>
+      </ul>
+      <div class="own">Trade-off: layout is fixed to the template. Good when speed matters more than pixels.</div>
+    </div>
+    <div class="lane-c hero-lane">
+      <span class="starflag">Start here</span>
+      <div class="tagline">Lane 2 · Hybrid</div>
+      <h3>Custom key-value, your UI</h3>
+      <div class="oneline">CleverTap delivers. Your app renders its own cell.</div>
+      <ul>
+        <li>Message rides as custom key-value pairs (shared KV, SDK 5.2.0+)</li>
+        <li>Your design system, your layout, pixel-level control</li>
+        <li>You keep segmentation, personalization, TTL, and stats</li>
+      </ul>
+      <div class="own">The sweet spot: full design freedom without giving up the orchestration engine. Verify the exact SDK gate with your PM.</div>
+    </div>
+    <div class="lane-c">
+      <div class="tagline">Lane 3 · Full build</div>
+      <h3>Your own inbox, end to end</h3>
+      <div class="oneline">CleverTap only triggers. You own everything after.</div>
+      <ul>
+        <li>Post Action Webhook fires to your endpoint on send</li>
+        <li>You build storage, TTL, read-state sync, render, and analytics</li>
+        <li>Maximum freedom, maximum invisible plumbing to maintain</li>
+      </ul>
+      <div class="own">Trade-off: you rebuild persistence, read-state, and stats that Lane 1 and 2 give you for free.</div>
+    </div>
+  </div>
+  <p class="muted reveal" style="margin-top:18px;font-size:13.5px">The honest read for a client: the jump from Lane 2 to Lane 3 buys very little extra design freedom and adds a lot of engineering you now own forever. Most "we need our own inbox" conversations end at Lane 2.</p>
+</div></section>
+
+<section id="pairing"><div class="wrap">
+  <div class="section-head reveal">
+    <p class="eyebrow">04 · Push + inbox</p>
+    <h2>Pair the buzz with the memory.</h2>
+    <p class="lead">A push and an inbox message are not rivals; they are a relay. The push gets attention in the moment. The inbox keeps a copy for when the person actually opens the app. In a push campaign, two switches do this, and your note is exactly right: a message can be linked or triggered from either one.</p>
+  </div>
+  <div class="paths reveal">
+    <div class="path">
+      <div class="lbl">Switch A · in the push editor</div>
+      <h3>App Inbox Delivery</h3>
+      <p>Tick it inside a push campaign and the same message persists in the inbox with its own colours and its own Inbox TTL (Limited or Infinite). The push fires now; the inbox copy is there on the next open.</p>
+      <div class="flow"><b>Send push</b><span class="arr">→</span><b>App Inbox Delivery on</b><span class="arr">→</span><b>Copy persists (own TTL)</b></div>
+    </div>
+    <div class="path">
+      <div class="lbl">Switch B · in the push editor</div>
+      <h3>Post Action Webhook</h3>
+      <p>Tick it and the campaign fires to an endpoint you own. Use it to populate your own message store or your own inbox. Combined with custom key-value pairs on the payload, this is the trigger for a fully custom build.</p>
+      <div class="flow"><b>Send push</b><span class="arr">→</span><b>Post Action Webhook</b><span class="arr">→</span><b>Your endpoint / your inbox</b></div>
+    </div>
+  </div>
+  <p class="muted reveal" style="margin-top:18px;font-size:13.5px">Note on timing: App Inbox is session-based, so the persisted copy appears on the next app launch or session, not the instant the push lands. That is the point, the inbox is populated for when they come back.</p>
+</div></section>
+
+<section id="decide"><div class="wrap">
+  <div class="section-head reveal">
+    <p class="eyebrow">05 · Decide</p>
+    <h2>Inbox, push, or native display?</h2>
+    <p class="lead">Three surfaces, three jobs. The quick rule: if it has shelf life, it belongs in the inbox. If it needs to interrupt right now, it is a push. If it lives inside a screen, it is native display.</p>
+  </div>
+  <div class="tablewrap reveal"><table><thead><tr><th>Dimension</th><th>Push</th><th class='col-inbox'>App Inbox</th><th>Native Display</th></tr></thead><tbody><tr><td>Lifespan</td><td>Disappears when swiped or on next push</td><td class='col-inbox'>Persists on device (TTL 1 to 60 days, or infinite)</td><td>Renders when placed; controlled by campaign</td></tr><tr><td>User must be online</td><td>Yes, to receive in the moment</td><td class='col-inbox'>No, fetched on next app launch/session</td><td>Yes, at render time</td></tr><tr><td>Interrupts the user</td><td>Yes (system notification)</td><td class='col-inbox'>No (waits to be opened)</td><td>No (sits inside a screen)</td></tr><tr><td>Best for</td><td>Time-critical nudges, re-engagement</td><td class='col-inbox'>Anything with shelf life: bills, coupons, status, digests</td><td>Merchandising inside a live screen</td></tr><tr><td>Shelf life</td><td>Seconds to minutes</td><td class='col-inbox'>Days to weeks</td><td>The session it renders in</td></tr><tr><td>Opt-in needed</td><td>Yes (push permission)</td><td class='col-inbox'>No (in-app surface)</td><td>No (in-app surface)</td></tr><tr><td>Rich media</td><td>Limited (mutable-content payload)</td><td class='col-inbox'>Image, GIF, audio, video by template</td><td>Image + custom layout</td></tr><tr><td>Analytics</td><td>Sent, delivered, clicks</td><td class='col-inbox'>Sent, Viewed, Clicks, CTR, Converted</td><td>Impressions, clicks</td></tr></tbody></table></div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+  <div class="section-head reveal">
+    <p class="eyebrow">06 · The gallery</p>
+    <h2>Ninety inbox moments, fifteen verticals.</h2>
+    <p class="lead">Each card is a real use case for a fictional brand. Tap any one for the deep dive: the trigger, the 5W1H, a copy-ready key-value payload, the SDK snippet, why it works, and the outcomes to watch. Every figure is illustrative.</p>
+  </div>
+  <div class="controls reveal" role="group" aria-label="Filter by vertical"><button class="filt" data-vf="all" aria-pressed="true">All verticals</button><button class="filt" data-vf="Classifieds" aria-pressed="false">Classifieds</button><button class="filt" data-vf="E-commerce" aria-pressed="false">E-commerce</button><button class="filt" data-vf="EdTech" aria-pressed="false">EdTech</button><button class="filt" data-vf="Fintech / Banking" aria-pressed="false">Fintech / Banking</button><button class="filt" data-vf="Food &amp; Beverage" aria-pressed="false">Food &amp; Beverage</button><button class="filt" data-vf="Gaming / Esports" aria-pressed="false">Gaming / Esports</button><button class="filt" data-vf="Grocery" aria-pressed="false">Grocery</button><button class="filt" data-vf="HealthTech" aria-pressed="false">HealthTech</button><button class="filt" data-vf="Insurance" aria-pressed="false">Insurance</button><button class="filt" data-vf="Loyalty" aria-pressed="false">Loyalty</button><button class="filt" data-vf="News / Media" aria-pressed="false">News / Media</button><button class="filt" data-vf="OTT / Streaming" aria-pressed="false">OTT / Streaming</button><button class="filt" data-vf="Ride-hailing" aria-pressed="false">Ride-hailing</button><button class="filt" data-vf="Telco" aria-pressed="false">Telco</button><button class="filt" data-vf="Travel" aria-pressed="false">Travel</button></div>
+  <div class="controls reveal" role="group" aria-label="Filter by template"><button class="filt" data-cf="all" aria-pressed="true">All templates</button><button class="filt" data-cf="Simple" aria-pressed="false">Simple</button><button class="filt" data-cf="Icon" aria-pressed="false">Icon</button><button class="filt" data-cf="Carousel+Content" aria-pressed="false">Carousel+Content</button><button class="filt" data-cf="Carousel (image only)" aria-pressed="false">Carousel (image only)</button><span class="count" id="ucCount"></span></div>
+  <div class="grid g3" id="ucGrid"></div>
+</div></section>
+
+<section id="stats"><div class="wrap">
+  <div class="section-head reveal">
+    <p class="eyebrow">07 · How stats work</p>
+    <h2>What the inbox reports back.</h2>
+    <p class="lead">App Inbox stats read a little differently from push, so it is worth knowing the formulas before a client asks. Note that CTR is measured against Viewed, not Sent.</p>
+  </div>
+  <div class="statrow"><div class="stat reveal"><div class="m">Sent</div><div class="f">Notifications sent to devices</div></div><div class="stat reveal"><div class="m">Viewed</div><div class="f">Devices that received it · Viewed / Sent</div></div><div class="stat reveal"><div class="m">Clicks</div><div class="f">Clicks on the message · Clicks / Sent</div></div><div class="stat reveal"><div class="m">CTR</div><div class="f">Clickthrough · Click / Viewed</div></div><div class="stat reveal"><div class="m">Converted</div><div class="f">Users who converted after receiving</div></div></div>
+  <p class="muted reveal" style="margin-top:18px;font-size:13.5px">On top of these, the stats page shows message trends (daily, weekly, monthly), a conversion and revenue view (incremental and boosted revenue), a conversion funnel by OS, errors, and control group. Each message stored on the device is counted as a user event.</p>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="section-head reveal">
+    <p class="eyebrow">08 · FAQ</p>
+    <h2>Twenty questions, straight answers.</h2>
+    <p class="lead">The mechanics and the styling, in plain language. Where availability depends on your plan or SDK version, it says so rather than guessing.</p>
+  </div>
+  <div class="faq reveal"><details><summary>How long does an App Inbox message live on the device?</summary><div class="a">You set a Time to Live from 1 to 60 days (default 2 days), or choose Infinite so it never auto-removes. TTL counts from campaign sent time. Pick a life that matches the job: a coupon valid for a month wants a long TTL, a weekend flash sale wants a day or two.</div></details><details><summary>Does the message appear the instant I send it?</summary><div class="a">App Inbox messages are session-based: they are fetched on the next app launch or new session. In a Push + App Inbox campaign the push arrives instantly, but the inbox copy shows up on the next open. That is by design, so the inbox is populated when the app is active.</div></details><details><summary>How do unread counts and badges work?</summary><div class="a">The SDK exposes total and unread counts (getInboxMessageCount and getInboxMessageUnreadCount on Android, equivalents on iOS). You mark a message read when it is seen, and repaint your badge on the inbox-updated callback. The unread dot is driven by that read state.</div></details><details><summary>Is delivery per-user or per-segment?</summary><div class="a">Both. You target a segment (past behaviour, live behaviour, or a custom list) like any channel, and personalization plus custom key-value make each user&#x27;s inbox look different. One user&#x27;s inbox is not another&#x27;s.</div></details><details><summary>What media and sizes are supported?</summary><div class="a">Image (jpg, png, gif) up to 500KB, video (mp4) up to 50MB, audio (mp3) up to 5MB, at 16:9 or 1:1. For video, keep an audio track present (add a silent track if needed).</div></details><details><summary>Can each CTA deep-link somewhere different?</summary><div class="a">Yes. A message carries up to two CTAs, each an Open URL (separate iOS and Android URLs) or a custom key-value action. Tapping the message body itself returns button index -1, so you can route that too.</div></details><details><summary>How is App Inbox set up versus Web Inbox?</summary><div class="a">App Inbox needs the mobile SDK (3.4.0+; KV buttons 3.6.1 Android / 3.7.1 iOS; shared KV across messages 5.2.0+) and a place to show the inbox UI. Web Inbox needs the Web SDK plus an Element ID: you give CleverTap a DOM node id in Setup and the bell, badge, and slide-in panel mount there.</div></details><details><summary>What is a custom key-value inbox, and when do I use it?</summary><div class="a">If you want a fully custom inbox look, you keep CleverTap for delivery, segmentation, TTL, and stats, and pass the message as custom key-value pairs (SDK 5.2.0+). Your app reads the payload and renders your own UI. This is the middle path between the ready-made SDK templates and building an inbox from scratch. Verify the exact SDK gate for your build with your PM.</div></details><details><summary>How do read and delivered stats work?</summary><div class="a">App Inbox stats report Sent (messages sent to devices), Viewed (devices that received it; Viewed/Sent), Clicks (Clicks/Sent), CTR (Click/Viewed), Converted users, plus errors and control group. There are trend, conversion, and revenue views. Each stored inbox message is counted as a user event.</div></details><details><summary>Can a push and an inbox message be sent together?</summary><div class="a">Yes. In a push campaign you can tick App Inbox Delivery so the same message persists in the inbox with its own colours and Inbox TTL. The push grabs attention now; the inbox keeps a copy for when they open the app.</div></details><details><summary>Can I trigger my own inbox or external system from a campaign?</summary><div class="a">Yes, through the Post Action Webhook on a push campaign: it fires to your endpoint so you can populate your own message store or your own inbox. Combined with custom key-value pairs on the payload, this is the build-your-own path.</div></details><details><summary>Can App Inbox be triggered by an API event?</summary><div class="a">For a standalone App Inbox campaign, a live-action message will not deliver if the qualifying event arrives via API; to trigger via API you configure it through a Journey. This limit does not apply to Push + App Inbox campaigns. Confirm current behaviour with your PM before relying on it.</div></details><details><summary>How do I sort messages into tabs?</summary><div class="a">Add Message Tags to a message; the tags map to tabs in your inbox UI (you name the tabs when you configure the inbox). Untagged messages fall into the default &#x27;All&#x27; bucket. Tabs are optional.</div></details><details><summary>Can I personalize inbox content?</summary><div class="a">Yes. Title, body, and CTA URLs accept {{personalization}} tokens and Liquid @tags, and you can attach Recommendations to generate per-user content. You can also A/B test, split-deliver, or vary by user property.</div></details><details><summary>How big is the Web Inbox panel?</summary><div class="a">The default web panel is about 392 by 546 pixels on desktop, and takes full width and height on mobile. You choose how many messages it shows (5 to 50, default 15) and style the panel, header, tabs, cards, buttons, and badge from the dashboard.</div></details><details><summary>How much design control do I actually have?</summary><div class="a">With the SDK templates you style through a config (title, background, tab colours, tab labels on app; a full colour set on web), not free HTML. For pixel-level control you use the custom key-value path and render your own UI. So &#x27;more design freedom&#x27; does not mean leaving CleverTap; it means moving one lane along the spectrum.</div></details><details><summary>What happens to messages after TTL expires?</summary><div class="a">They are automatically removed from the device once the TTL passes (counted from sent time). Infinite TTL messages stay until you remove them. Choose TTL to match how long the message stays useful.</div></details><details><summary>Does the inbox work offline?</summary><div class="a">The messages already fetched to the device are available offline, since App Inbox persists locally. New messages are fetched on the next session when the device is online.</div></details><details><summary>Which plan or packaging includes App Inbox and Web Inbox?</summary><div class="a">Channel availability depends on your CleverTap plan and packaging, which changes over time. Treat this as <span class='verifyflag'>Verify with PM</span> rather than a fixed answer, and check your project&#x27;s entitlements before you promise a client.</div></details><details><summary>Where does the CSM lane stop on all this?</summary><div class="a">You own the value story: which use cases, what shelf life, which design treatment, what outcome to prove. SDK setup, identity, and payload debugging sit with the customer&#x27;s engineers and CleverTap support; commercial close and packaging sit with the AE. Bring the play, route the plumbing.</div></details></div>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <div class="big">If it has shelf life, it belongs in the inbox.</div>
+  <div style="font-size:13.5px;text-align:right">
+    <div>CleverTap Field Guide 13 · App + Web Inbox</div>
+    <div style="margin-top:6px">Fictional brands. Illustrative figures. Facts grounded in CleverTap docs.</div>
+    <div style="margin-top:6px"><a class="plink" href="https://shijunneo-bot.github.io/">← the full network</a></div>
+  </div>
+</div></footer>
+<button class="totop" id="totop" aria-label="Back to top" title="Back to top">&uarr;</button>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="scrim" data-close></div>
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<script>
+const DATA = {"brands": [["Lumo Mobile", "Telco", "#3B82F6", "list"], ["Vela+", "OTT / Streaming", "#8B5CF6", "media"], ["Arca Bank", "Fintech / Banking", "#0EA5A4", "dense"], ["Sagana Care", "Insurance", "#14B8A6", "timeline"], ["Tokobell", "E-commerce", "#F97316", "commerce"], ["MakanGo", "Food & Beverage", "#EF4444", "cardstack"], ["SwiftRide", "Ride-hailing", "#22C55E", "compact"], ["Kitefare", "Travel", "#06B6D4", "editorial"], ["Nebula Arena", "Gaming / Esports", "#A855F7", "darklux"], ["BrightPath", "EdTech", "#6366F1", "tabs"], ["Ovia Health", "HealthTech", "#10B981", "rounded"], ["FreshCart", "Grocery", "#84CC16", "wallet"], ["The Daily Lens", "News / Media", "#F43F5E", "chat"], ["OrbitPoints", "Loyalty", "#EAB308", "carousel"], ["HavenList", "Classifieds", "#F59E0B", "icon"]], "treatments": [["list", "Classic list", "app", "When utility beats spectacle and scanning speed matters most (banking, telco).", "Simple Message"], ["cardstack", "Card stack", "app", "When each message deserves breathing room and a clear single action.", "Simple / Icon Message"], ["media", "Media-rich feed", "app", "When the product is visual: streaming, travel, commerce hero moments.", "Icon Message / Carousel"], ["wallet", "Coupon / ticket wallet", "app", "When messages are assets to keep: coupons, passes, boarding cards.", "Icon Message + custom KV"], ["chat", "Chat-thread style", "app", "When the relationship feels conversational: news threads, support, social.", "Simple Message + tags"], ["tabs", "Grouped by category (tabs)", "app", "When one inbox serves many needs and users self-sort (offers vs updates).", "Any template + Message Tags"], ["timeline", "Timeline", "app", "When order and progress matter: claims, deliveries, onboarding steps.", "Simple / Icon Message"], ["darklux", "Dark luxury", "app", "When the brand is premium and restraint reads as expensive (gaming, finance).", "Icon Message (dark style config)"], ["rounded", "Playful rounded", "app", "When warmth and approachability are the brand (health, lifestyle, kids).", "Icon / Carousel (rounded style)"], ["dense", "Dense utility", "app", "When power users want maximum information density (banking, B2B, trading).", "Simple Message (compact)"], ["editorial", "Edge-to-edge editorial", "app", "When full-bleed imagery tells the story (travel, media, fashion).", "Carousel (image only)"], ["carousel", "Carousel-in-inbox", "app", "When one card should hold a menu: rewards, new episodes, product sets.", "Carousel with Content"], ["compact", "Icon-message compact", "app", "When you want a tidy list with a glanceable thumbnail per row.", "Icon Message"], ["commerce", "Promo-heavy commerce", "app", "When merchandising drives the app: deals, drops, flash sales.", "Carousel + Simple Message"], ["webpanel", "Web Inbox panel", "web", "When the surface is a website: a bell + slide-in panel anchored to your DOM.", "Web Inbox (Simple / Carousel)"], ["webtabs", "Web Inbox with categories", "web", "When a web panel needs tabs to sort notifications by type.", "Web Inbox + Categories"]], "decision": [["Lifespan", "Disappears when swiped or on next push", "Persists on device (TTL 1 to 60 days, or infinite)", "Renders when placed; controlled by campaign"], ["User must be online", "Yes, to receive in the moment", "No, fetched on next app launch/session", "Yes, at render time"], ["Interrupts the user", "Yes (system notification)", "No (waits to be opened)", "No (sits inside a screen)"], ["Best for", "Time-critical nudges, re-engagement", "Anything with shelf life: bills, coupons, status, digests", "Merchandising inside a live screen"], ["Shelf life", "Seconds to minutes", "Days to weeks", "The session it renders in"], ["Opt-in needed", "Yes (push permission)", "No (in-app surface)", "No (in-app surface)"], ["Rich media", "Limited (mutable-content payload)", "Image, GIF, audio, video by template", "Image + custom layout"], ["Analytics", "Sent, delivered, clicks", "Sent, Viewed, Clicks, CTR, Converted", "Impressions, clicks"]], "anatomy_app": [["Icon / thumbnail", "code", "Rendered by your SDK cell; source set via template or KV."], ["Title", "dash", "Dashboard field, supports {{personalization}} and Liquid @tags."], ["Body / message", "dash", "Dashboard field, personalizable."], ["Media", "dash", "Image (500KB), GIF, MP4 (50MB), MP3 (5MB), 16:9 or 1:1."], ["CTAs (up to 2)", "dash", "Open URL (iOS/Android) or custom key-value; body tap = index -1."], ["Timestamp", "code", "Rendered by the SDK from message time."], ["Unread dot", "code", "Driven by read/unread state you mark via SDK."], ["Tags / tabs", "dash", "Message Tags classify into inbox tabs; default bucket 'All'."]], "anatomy_web": [["Bell + badge", "dash", "Notification badge, colour set in Setup; shows unread count."], ["Panel header", "dash", "Title (default 'Notifications'), colours in Style tab."], ["Category tabs", "dash", "Optional 'Add categories' with per-tab colours."], ["Message card", "dash", "Title, body, media, up to 2 buttons; card colours in Style."], ["Unread marker", "dash", "Marker colour configurable (e.g. #FF5353)."], ["Element ID anchor", "code", "You supply the DOM node id; the panel mounts there."], ["Messages shown", "dash", "Number of messages 5 to 50 (default 15)."]], "faq": [["How long does an App Inbox message live on the device?", "You set a Time to Live from 1 to 60 days (default 2 days), or choose Infinite so it never auto-removes. TTL counts from campaign sent time. Pick a life that matches the job: a coupon valid for a month wants a long TTL, a weekend flash sale wants a day or two."], ["Does the message appear the instant I send it?", "App Inbox messages are session-based: they are fetched on the next app launch or new session. In a Push + App Inbox campaign the push arrives instantly, but the inbox copy shows up on the next open. That is by design, so the inbox is populated when the app is active."], ["How do unread counts and badges work?", "The SDK exposes total and unread counts (getInboxMessageCount and getInboxMessageUnreadCount on Android, equivalents on iOS). You mark a message read when it is seen, and repaint your badge on the inbox-updated callback. The unread dot is driven by that read state."], ["Is delivery per-user or per-segment?", "Both. You target a segment (past behaviour, live behaviour, or a custom list) like any channel, and personalization plus custom key-value make each user's inbox look different. One user's inbox is not another's."], ["What media and sizes are supported?", "Image (jpg, png, gif) up to 500KB, video (mp4) up to 50MB, audio (mp3) up to 5MB, at 16:9 or 1:1. For video, keep an audio track present (add a silent track if needed)."], ["Can each CTA deep-link somewhere different?", "Yes. A message carries up to two CTAs, each an Open URL (separate iOS and Android URLs) or a custom key-value action. Tapping the message body itself returns button index -1, so you can route that too."], ["How is App Inbox set up versus Web Inbox?", "App Inbox needs the mobile SDK (3.4.0+; KV buttons 3.6.1 Android / 3.7.1 iOS; shared KV across messages 5.2.0+) and a place to show the inbox UI. Web Inbox needs the Web SDK plus an Element ID: you give CleverTap a DOM node id in Setup and the bell, badge, and slide-in panel mount there."], ["What is a custom key-value inbox, and when do I use it?", "If you want a fully custom inbox look, you keep CleverTap for delivery, segmentation, TTL, and stats, and pass the message as custom key-value pairs (SDK 5.2.0+). Your app reads the payload and renders your own UI. This is the middle path between the ready-made SDK templates and building an inbox from scratch. Verify the exact SDK gate for your build with your PM."], ["How do read and delivered stats work?", "App Inbox stats report Sent (messages sent to devices), Viewed (devices that received it; Viewed/Sent), Clicks (Clicks/Sent), CTR (Click/Viewed), Converted users, plus errors and control group. There are trend, conversion, and revenue views. Each stored inbox message is counted as a user event."], ["Can a push and an inbox message be sent together?", "Yes. In a push campaign you can tick App Inbox Delivery so the same message persists in the inbox with its own colours and Inbox TTL. The push grabs attention now; the inbox keeps a copy for when they open the app."], ["Can I trigger my own inbox or external system from a campaign?", "Yes, through the Post Action Webhook on a push campaign: it fires to your endpoint so you can populate your own message store or your own inbox. Combined with custom key-value pairs on the payload, this is the build-your-own path."], ["Can App Inbox be triggered by an API event?", "For a standalone App Inbox campaign, a live-action message will not deliver if the qualifying event arrives via API; to trigger via API you configure it through a Journey. This limit does not apply to Push + App Inbox campaigns. Confirm current behaviour with your PM before relying on it."], ["How do I sort messages into tabs?", "Add Message Tags to a message; the tags map to tabs in your inbox UI (you name the tabs when you configure the inbox). Untagged messages fall into the default 'All' bucket. Tabs are optional."], ["Can I personalize inbox content?", "Yes. Title, body, and CTA URLs accept {{personalization}} tokens and Liquid @tags, and you can attach Recommendations to generate per-user content. You can also A/B test, split-deliver, or vary by user property."], ["How big is the Web Inbox panel?", "The default web panel is about 392 by 546 pixels on desktop, and takes full width and height on mobile. You choose how many messages it shows (5 to 50, default 15) and style the panel, header, tabs, cards, buttons, and badge from the dashboard."], ["How much design control do I actually have?", "With the SDK templates you style through a config (title, background, tab colours, tab labels on app; a full colour set on web), not free HTML. For pixel-level control you use the custom key-value path and render your own UI. So 'more design freedom' does not mean leaving CleverTap; it means moving one lane along the spectrum."], ["What happens to messages after TTL expires?", "They are automatically removed from the device once the TTL passes (counted from sent time). Infinite TTL messages stay until you remove them. Choose TTL to match how long the message stays useful."], ["Does the inbox work offline?", "The messages already fetched to the device are available offline, since App Inbox persists locally. New messages are fetched on the next session when the device is online."], ["Which plan or packaging includes App Inbox and Web Inbox?", "Channel availability depends on your CleverTap plan and packaging, which changes over time. Treat this as Verify with PM rather than a fixed answer, and check your project's entitlements before you promise a client."], ["Where does the CSM lane stop on all this?", "You own the value story: which use cases, what shelf life, which design treatment, what outcome to prove. SDK setup, identity, and payload debugging sit with the customer's engineers and CleverTap support; commercial close and packaging sit with the AE. Bring the play, route the plumbing."]], "snippets": {"read_unread": "// Android: read + unread handling via CTInboxListener\ncleverTapAPI.getInboxMessageCount();        // total messages on device\ncleverTapAPI.getInboxMessageUnreadCount();  // unread badge value\n// Mark read when the item scrolls into view\ncleverTapAPI.markReadInboxMessage(message);\n// Live badge: refresh on this callback\ninboxDidInitialize();      // inbox ready\ninboxMessagesDidUpdate();  // counts changed -> repaint your badge", "callback": "// Inbox tap returns two indices (see docs):\n// contentPageIndex: 0..n-1 for carousel pages, 0 for non-carousel\n// buttonIndex: 0,1,2  (-1 == the message body itself was tapped)\nonInboxItemClicked(message, contentPageIndex, buttonIndex) {\n  const cta = message.inboxMessageContents[contentPageIndex]\n                     .links[buttonIndex];   // Open URL or custom KV\n  route(cta);   // deep link, or read KV and act\n}", "kv_render": "// Custom inbox: CleverTap delivers, you render.\n// Read the custom key-value payload and paint your own UI.\ncleverTapAPI.getAllInboxMessages().forEach(m => {\n  const kv = m.customData;         // your key-value pairs\n  renderMyOwnCell(kv);             // your design system, your layout\n});", "web_init": "// Web Inbox mounts into an element you own (the \"Element ID\").\n// The bell/badge + slide-in panel render inside that node.\nclevertap.notifications.push({\n  // Web Inbox is enabled + styled in dashboard Setup; you supply the anchor.\n});\n// Panel default 392x546px on desktop; full width/height on mobile.", "webhook": "// Push campaign -> Post Action Webhook fires to YOUR endpoint.\n// Use it to trigger your own message store / your own inbox.\nPOST https://api.yourbrand.com/inbox/ingest\n{ \"user_id\": \"{{ct_objectId}}\", \"type\": \"promo\", \"ttl_days\": 7,\n  \"payload\": { /* your schema */ } }   // you own persistence + render"}, "cards": [{"brand": "Lumo Mobile", "vertical": "Telco", "accent": "#3B82F6", "mock": "list", "idx": 0, "title": "Bill ready, pay before due", "template": "Simple", "trigger": "Monthly invoice generated", "mech": "Persistent bill card sits in inbox until paid; CTA opens pay screen.", "who": "Post-paid subscribers", "when": "On invoice event", "why": "Push nags once; the inbox card waits by the due date so late-payers still convert.", "kv": {"screen": "pay_bill", "invoice_id": "{{invoice_id}}", "amount_due": "{{amount}}"}, "kpis": ["Illustrative: on-time payment +8pts", "Illustrative: late fees -14%"], "snip": "callback", "body": "Persistent bill card sits in inbox until paid; CTA opens pay screen.", "ttl": "20 days", "channel": "App Inbox"}, {"brand": "Lumo Mobile", "vertical": "Telco", "accent": "#3B82F6", "mock": "list", "idx": 1, "title": "Data pack running low", "template": "Icon", "trigger": "Usage crosses 80%", "mech": "Icon card with a top-up CTA; copy-to-clipboard promo code for a bonus pack.", "who": "Prepaid users near limit", "when": "Live behaviour trigger", "why": "Right moment, shelf life: they act when they next open, not only at the buzz.", "kv": {"screen": "topup", "pack": "{{recommended_pack}}", "promo": "BONUS5GB"}, "kpis": ["Illustrative: top-up rate +11%"], "snip": "read_unread", "body": "Icon card with a top-up CTA; copy-to-clipboard promo code for a bonus pack.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Lumo Mobile", "vertical": "Telco", "accent": "#3B82F6", "mock": "list", "idx": 2, "title": "Roaming pass for your trip", "template": "Carousel+Content", "trigger": "Travel intent detected", "mech": "Three-slide carousel of roaming passes by region, each slide deep-links to buy.", "who": "Users with upcoming travel", "when": "Date-property trigger", "why": "A carousel lets one card hold the whole roaming menu without extra sends.", "kv": {"screen": "roaming", "region": "{{destination}}"}, "kpis": ["Illustrative: pass attach +9%"], "snip": "callback", "body": "Three-slide carousel of roaming passes by region, each slide deep-links to buy.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Lumo Mobile", "vertical": "Telco", "accent": "#3B82F6", "mock": "list", "idx": 3, "title": "Loyalty tier upgrade", "template": "Icon", "trigger": "Tenure milestone reached", "mech": "Congratulatory icon card; infinite-ish TTL so the perk stays visible.", "who": "12-month+ subscribers", "when": "On tenure event", "why": "A perk they can return to beats a push they scroll past.", "kv": {"screen": "rewards", "tier": "{{new_tier}}"}, "kpis": ["Illustrative: perk redemption +7%"], "snip": "callback", "body": "Congratulatory icon card; infinite-ish TTL so the perk stays visible.", "ttl": "30 days", "channel": "App Inbox"}, {"brand": "Lumo Mobile", "vertical": "Telco", "accent": "#3B82F6", "mock": "list", "idx": 4, "title": "New plan, better value", "template": "Simple", "trigger": "Downgrade-risk segment", "mech": "Plain card comparing current vs recommended plan; single clear CTA.", "who": "Price-sensitive, low-usage users", "when": "Past-behaviour segment", "why": "Quiet, non-pushy nudge that lives where they can weigh it up.", "kv": {"screen": "plans", "recommend": "{{plan_id}}"}, "kpis": ["Illustrative: plan switch +5%"], "snip": "callback", "body": "Plain card comparing current vs recommended plan; single clear CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Lumo Mobile", "vertical": "Telco", "accent": "#3B82F6", "mock": "list", "idx": 5, "title": "Outage resolved in your area", "template": "Simple", "trigger": "Network incident cleared", "mech": "Service-update card, short TTL; reassurance plus a speed-test CTA.", "who": "Users in affected cell area", "when": "On resolution event", "why": "Inbox is the calm channel for status: it informs without a jarring buzz.", "kv": {"screen": "speedtest", "area": "{{cell_area}}"}, "kpis": ["Illustrative: support tickets -12%"], "snip": "callback", "body": "Service-update card, short TTL; reassurance plus a speed-test CTA.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "Vela+", "vertical": "OTT / Streaming", "accent": "#8B5CF6", "mock": "media", "idx": 0, "title": "Continue watching", "template": "Icon", "trigger": "Session ended mid-title", "mech": "Thumbnail icon card resumes the exact timestamp on tap.", "who": "Viewers who paused a title", "when": "On pause/exit", "why": "The resume prompt waits patiently in the inbox for the next quiet evening.", "kv": {"screen": "player", "content_id": "{{title_id}}", "resume_at": "{{seconds}}"}, "kpis": ["Illustrative: resume rate +13%"], "snip": "callback", "body": "Thumbnail icon card resumes the exact timestamp on tap.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Vela+", "vertical": "OTT / Streaming", "accent": "#8B5CF6", "mock": "media", "idx": 1, "title": "New episode dropped", "template": "Carousel+Content", "trigger": "Followed show releases", "mech": "Carousel of new episodes from followed shows, each slide deep-links to play.", "who": "Followers of a series", "when": "On content publish", "why": "One inbox card carries a week of drops; no push fatigue.", "kv": {"screen": "series", "series_id": "{{series_id}}"}, "kpis": ["Illustrative: D1 play +10%"], "snip": "callback", "body": "Carousel of new episodes from followed shows, each slide deep-links to play.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Vela+", "vertical": "OTT / Streaming", "accent": "#8B5CF6", "mock": "media", "idx": 2, "title": "Because you watched", "template": "Carousel (image only)", "trigger": "Genre affinity", "mech": "Image-only poster carousel; pure visual merchandising, tap to open.", "who": "Genre-affine viewers", "when": "Weekly recommender", "why": "Posters sell themselves; image-only keeps it clean and fast.", "kv": {"screen": "row", "reco_id": "{{reco_id}}"}, "kpis": ["Illustrative: browse-to-play +8%"], "snip": "kv_render", "body": "Image-only poster carousel; pure visual merchandising, tap to open.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Vela+", "vertical": "OTT / Streaming", "accent": "#8B5CF6", "mock": "media", "idx": 3, "title": "Your watchlist is on sale", "template": "Simple", "trigger": "Rental price drop", "mech": "Text card flags a price drop on a watchlisted title; short TTL urgency.", "who": "Users with watchlist items", "when": "On price change", "why": "Timely, but the shelf life gives them the evening to decide.", "kv": {"screen": "rental", "title_id": "{{title_id}}"}, "kpis": ["Illustrative: rental conv +6%"], "snip": "callback", "body": "Text card flags a price drop on a watchlisted title; short TTL urgency.", "ttl": "3 days", "channel": "App Inbox"}, {"brand": "Vela+", "vertical": "OTT / Streaming", "accent": "#8B5CF6", "mock": "media", "idx": 4, "title": "Finish the season tonight", "template": "Icon", "trigger": "2 episodes remain", "mech": "Nudge card to complete a near-finished season; progress shown.", "who": "Near-complete bingers", "when": "Segment trigger", "why": "Completion nudges lift satisfaction and reduce churn signals.", "kv": {"screen": "series", "series_id": "{{series_id}}"}, "kpis": ["Illustrative: season completion +9%"], "snip": "callback", "body": "Nudge card to complete a near-finished season; progress shown.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Vela+", "vertical": "OTT / Streaming", "accent": "#8B5CF6", "mock": "media", "idx": 5, "title": "Offline downloads expiring", "template": "Simple", "trigger": "Download TTL nearing", "mech": "Reminder card that a saved download expires; renew CTA.", "who": "Users with offline saves", "when": "On expiry approach", "why": "Inbox is the natural home for expiry reminders; it persists to the moment.", "kv": {"screen": "downloads", "asset_id": "{{asset_id}}"}, "kpis": ["Illustrative: re-download +7%"], "snip": "callback", "body": "Reminder card that a saved download expires; renew CTA.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "Arca Bank", "vertical": "Fintech / Banking", "accent": "#0EA5A4", "mock": "dense", "idx": 0, "title": "Statement is ready", "template": "Simple", "trigger": "Monthly statement generated", "mech": "Compact statement card; opens the PDF/detail view. Long TTL for records.", "who": "All account holders", "when": "On statement event", "why": "A record-type message belongs in a place with memory, not a push that vanishes.", "kv": {"screen": "statement", "period": "{{period}}"}, "kpis": ["Illustrative: statement opens +18%"], "snip": "callback", "body": "Compact statement card; opens the PDF/detail view. Long TTL for records.", "ttl": "30 days", "channel": "App Inbox"}, {"brand": "Arca Bank", "vertical": "Fintech / Banking", "accent": "#0EA5A4", "mock": "dense", "idx": 1, "title": "Card payment due", "template": "Icon", "trigger": "Credit due in 3 days", "mech": "Icon card with amount due and pay CTA; copy-to-clipboard reference number.", "who": "Cardholders with balance", "when": "Date-property trigger", "why": "Due-date reminders that wait beside the deadline lift on-time payments.", "kv": {"screen": "pay_card", "ref": "{{payment_ref}}"}, "kpis": ["Illustrative: on-time pay +9%"], "snip": "read_unread", "body": "Icon card with amount due and pay CTA; copy-to-clipboard reference number.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Arca Bank", "vertical": "Fintech / Banking", "accent": "#0EA5A4", "mock": "dense", "idx": 2, "title": "Unusual login noticed", "template": "Simple", "trigger": "New-device sign-in", "mech": "Security card, short TTL; review-activity CTA. Calm, not alarmist.", "who": "Account holder", "when": "On security event", "why": "Security notices need a durable trail; the inbox keeps the receipt.", "kv": {"screen": "security", "event_id": "{{event_id}}"}, "kpis": ["Illustrative: review rate +22%"], "snip": "callback", "body": "Security card, short TTL; review-activity CTA. Calm, not alarmist.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Arca Bank", "vertical": "Fintech / Banking", "accent": "#0EA5A4", "mock": "dense", "idx": 3, "title": "Pre-approved limit increase", "template": "Icon", "trigger": "Eligibility model flags user", "mech": "Offer card with a single accept CTA; KV carries the offer token.", "who": "Eligible cardholders", "when": "Segment trigger", "why": "Give the offer shelf life so they act on their own timeline.", "kv": {"screen": "limit_offer", "token": "{{offer_token}}"}, "kpis": ["Illustrative: accept rate +6%"], "snip": "callback", "body": "Offer card with a single accept CTA; KV carries the offer token.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Arca Bank", "vertical": "Fintech / Banking", "accent": "#0EA5A4", "mock": "dense", "idx": 4, "title": "Goal saver milestone", "template": "Icon", "trigger": "Savings goal 50% reached", "mech": "Progress card celebrating a savings milestone; nudge to top up.", "who": "Goal-saver users", "when": "On milestone", "why": "Positive reinforcement that they can revisit builds the habit.", "kv": {"screen": "goals", "goal_id": "{{goal_id}}"}, "kpis": ["Illustrative: top-up +8%"], "snip": "callback", "body": "Progress card celebrating a savings milestone; nudge to top up.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Arca Bank", "vertical": "Fintech / Banking", "accent": "#0EA5A4", "mock": "dense", "idx": 5, "title": "FD maturing soon", "template": "Simple", "trigger": "Fixed deposit near maturity", "mech": "Maturity reminder with renew/withdraw options; long TTL.", "who": "FD holders", "when": "Date-property trigger", "why": "Maturity is a dated event; the inbox parks the reminder until the date.", "kv": {"screen": "fd", "fd_id": "{{fd_id}}"}, "kpis": ["Illustrative: renewal +7%"], "snip": "callback", "body": "Maturity reminder with renew/withdraw options; long TTL.", "ttl": "30 days", "channel": "App Inbox"}, {"brand": "Sagana Care", "vertical": "Insurance", "accent": "#14B8A6", "mock": "timeline", "idx": 0, "title": "Policy renewal window open", "template": "Simple", "trigger": "Renewal 30 days out", "mech": "Renewal card with quote CTA; long TTL spans the whole window.", "who": "Policyholders near renewal", "when": "Date-property trigger", "why": "A 30-day window needs a 30-day message; only the inbox persists that long.", "kv": {"screen": "renew", "policy_id": "{{policy_id}}"}, "kpis": ["Illustrative: renewal +6%"], "snip": "callback", "body": "Renewal card with quote CTA; long TTL spans the whole window.", "ttl": "30 days", "channel": "App Inbox"}, {"brand": "Sagana Care", "vertical": "Insurance", "accent": "#14B8A6", "mock": "timeline", "idx": 1, "title": "Claim status update", "template": "Icon", "trigger": "Claim moves stage", "mech": "Status card updates as the claim progresses; opens claim tracker.", "who": "Members with open claims", "when": "On stage change", "why": "Claim anxiety is real; a durable status card reduces support calls.", "kv": {"screen": "claim", "claim_id": "{{claim_id}}"}, "kpis": ["Illustrative: claim-status calls -15%"], "snip": "read_unread", "body": "Status card updates as the claim progresses; opens claim tracker.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Sagana Care", "vertical": "Insurance", "accent": "#14B8A6", "mock": "timeline", "idx": 2, "title": "Annual health check due", "template": "Simple", "trigger": "Coverage benefit unused", "mech": "Benefit-nudge card; book-now CTA. Encourages use of an unused perk.", "who": "Members with unused checkup", "when": "Segment trigger", "why": "Perks people forget; the inbox is a gentle standing reminder.", "kv": {"screen": "book_check", "benefit": "{{benefit_id}}"}, "kpis": ["Illustrative: benefit use +9%"], "snip": "callback", "body": "Benefit-nudge card; book-now CTA. Encourages use of an unused perk.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Sagana Care", "vertical": "Insurance", "accent": "#14B8A6", "mock": "timeline", "idx": 3, "title": "Add a rider to your plan", "template": "Carousel+Content", "trigger": "Life-stage signal", "mech": "Carousel of rider options with plain-language benefits; tap to add.", "who": "Members with life-stage change", "when": "Segment trigger", "why": "Cross-sell that respects the reader: a menu they browse, not a hard push.", "kv": {"screen": "riders", "reco": "{{rider_id}}"}, "kpis": ["Illustrative: rider attach +5%"], "snip": "callback", "body": "Carousel of rider options with plain-language benefits; tap to add.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Sagana Care", "vertical": "Insurance", "accent": "#14B8A6", "mock": "timeline", "idx": 4, "title": "Document upload pending", "template": "Simple", "trigger": "KYC/doc incomplete", "mech": "Task card listing the missing document; upload CTA. Short TTL.", "who": "Members mid-onboarding", "when": "On incomplete state", "why": "A to-do that waits in the inbox beats an email they archive.", "kv": {"screen": "upload", "doc": "{{doc_type}}"}, "kpis": ["Illustrative: completion +12%"], "snip": "callback", "body": "Task card listing the missing document; upload CTA. Short TTL.", "ttl": "5 days", "channel": "App Inbox"}, {"brand": "Sagana Care", "vertical": "Insurance", "accent": "#14B8A6", "mock": "timeline", "idx": 5, "title": "Wellness reward earned", "template": "Icon", "trigger": "Steps goal hit", "mech": "Reward card for a wellness milestone; redeem CTA.", "who": "Wellness-program members", "when": "On milestone", "why": "Rewards you can revisit reinforce the healthy loop.", "kv": {"screen": "rewards", "reward_id": "{{reward_id}}"}, "kpis": ["Illustrative: program retention +7%"], "snip": "callback", "body": "Reward card for a wellness milestone; redeem CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Tokobell", "vertical": "E-commerce", "accent": "#F97316", "mock": "commerce", "idx": 0, "title": "You left something behind", "template": "Icon", "trigger": "Cart abandoned", "mech": "Cart-recovery card showing the item; resume-checkout CTA.", "who": "Cart abandoners", "when": "Inaction-within-time", "why": "The classic recovery, but persistent: it waits for payday, not just the hour.", "kv": {"screen": "cart", "cart_id": "{{cart_id}}"}, "kpis": ["Illustrative: cart recovery +10%"], "snip": "callback", "body": "Cart-recovery card showing the item; resume-checkout CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Tokobell", "vertical": "E-commerce", "accent": "#F97316", "mock": "commerce", "idx": 1, "title": "Price dropped on your wishlist", "template": "Simple", "trigger": "Wishlist item price cut", "mech": "Text card flags a wishlist price drop; short TTL urgency.", "who": "Users with wishlists", "when": "On price change", "why": "Timely and durable: the deal waits a couple of days, not a couple of hours.", "kv": {"screen": "pdp", "sku": "{{sku}}"}, "kpis": ["Illustrative: wishlist conv +8%"], "snip": "callback", "body": "Text card flags a wishlist price drop; short TTL urgency.", "ttl": "3 days", "channel": "App Inbox"}, {"brand": "Tokobell", "vertical": "E-commerce", "accent": "#F97316", "mock": "commerce", "idx": 2, "title": "Order shipped", "template": "Icon", "trigger": "Fulfilment dispatched", "mech": "Tracking card that updates status; opens live tracking.", "who": "Buyers with open orders", "when": "On dispatch", "why": "Order tracking is a returning need; the inbox is where they look.", "kv": {"screen": "track", "order_id": "{{order_id}}"}, "kpis": ["Illustrative: WISMO tickets -18%"], "snip": "read_unread", "body": "Tracking card that updates status; opens live tracking.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Tokobell", "vertical": "E-commerce", "accent": "#F97316", "mock": "commerce", "idx": 3, "title": "Flash sale starts tonight", "template": "Carousel (image only)", "trigger": "Campaign scheduled", "mech": "Poster carousel of hero deals; image-only for punch. Short TTL.", "who": "Deal-seeking segment", "when": "Scheduled campaign", "why": "Image-only merchandising that stays put until the sale opens.", "kv": {"screen": "sale", "campaign": "{{campaign_id}}"}, "kpis": ["Illustrative: sale-day GMV +6%"], "snip": "callback", "body": "Poster carousel of hero deals; image-only for punch. Short TTL.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "Tokobell", "vertical": "E-commerce", "accent": "#F97316", "mock": "commerce", "idx": 4, "title": "Restocked: your size is back", "template": "Icon", "trigger": "Back-in-stock event", "mech": "Back-in-stock card; buy-now CTA before it sells out again.", "who": "Back-in-stock subscribers", "when": "On restock", "why": "High-intent moment with a short shelf life the inbox handles well.", "kv": {"screen": "pdp", "sku": "{{sku}}"}, "kpis": ["Illustrative: restock conv +14%"], "snip": "callback", "body": "Back-in-stock card; buy-now CTA before it sells out again.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "Tokobell", "vertical": "E-commerce", "accent": "#F97316", "mock": "commerce", "idx": 5, "title": "Rate your recent order", "template": "Simple", "trigger": "Delivery completed", "mech": "Review-request card; opens rating flow. Feeds catalog quality.", "who": "Recently delivered buyers", "when": "On delivery + delay", "why": "Ask when they are back in-app, not mid-dinner via push.", "kv": {"screen": "review", "order_id": "{{order_id}}"}, "kpis": ["Illustrative: review rate +9%"], "snip": "callback", "body": "Review-request card; opens rating flow. Feeds catalog quality.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "MakanGo", "vertical": "Food & Beverage", "accent": "#EF4444", "mock": "cardstack", "idx": 0, "title": "Your usual, one tap away", "template": "Icon", "trigger": "Reorder pattern detected", "mech": "Reorder card with the favourite meal; one-tap reorder CTA.", "who": "Habitual reorderers", "when": "Segment trigger", "why": "A standing shortcut that lives in the inbox turns craving into a tap.", "kv": {"screen": "reorder", "item": "{{fav_item}}"}, "kpis": ["Illustrative: reorder rate +12%"], "snip": "callback", "body": "Reorder card with the favourite meal; one-tap reorder CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "MakanGo", "vertical": "Food & Beverage", "accent": "#EF4444", "mock": "cardstack", "idx": 1, "title": "Lunch deal near you", "template": "Simple", "trigger": "Midday, in delivery zone", "mech": "Deal card, short TTL for the lunch window; opens the offer.", "who": "Users in-zone at midday", "when": "Time + geo segment", "why": "Right time, and it waits through the whole lunch window, not one buzz.", "kv": {"screen": "offer", "deal": "{{deal_id}}"}, "kpis": ["Illustrative: lunch orders +7%"], "snip": "callback", "body": "Deal card, short TTL for the lunch window; opens the offer.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "MakanGo", "vertical": "Food & Beverage", "accent": "#EF4444", "mock": "cardstack", "idx": 2, "title": "Loyalty stamp earned", "template": "Icon", "trigger": "Order completed", "mech": "Stamp-card progress; nudge toward the free item. Long TTL.", "who": "Loyalty members", "when": "On order", "why": "A progress card they revisit drives the next order.", "kv": {"screen": "loyalty", "stamps": "{{stamp_count}}"}, "kpis": ["Illustrative: 5th-order rate +8%"], "snip": "callback", "body": "Stamp-card progress; nudge toward the free item. Long TTL.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "MakanGo", "vertical": "Food & Beverage", "accent": "#EF4444", "mock": "cardstack", "idx": 3, "title": "New on the menu", "template": "Carousel+Content", "trigger": "Restaurant adds items", "mech": "Carousel of new dishes with prices; tap a slide to add to cart.", "who": "Followers of a restaurant", "when": "On menu update", "why": "A tasty carousel that waits for hunger to strike.", "kv": {"screen": "menu", "rid": "{{restaurant_id}}"}, "kpis": ["Illustrative: new-item trial +6%"], "snip": "callback", "body": "Carousel of new dishes with prices; tap a slide to add to cart.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "MakanGo", "vertical": "Food & Beverage", "accent": "#EF4444", "mock": "cardstack", "idx": 4, "title": "We miss you, here's 20% off", "template": "Simple", "trigger": "Lapsed 30 days", "mech": "Win-back card with a copy-to-clipboard code; medium TTL.", "who": "Lapsed users", "when": "Inaction segment", "why": "Win-back with shelf life: they come back on a hungry night, not on cue.", "kv": {"screen": "offer", "promo": "COMEBACK20"}, "kpis": ["Illustrative: reactivation +5%"], "snip": "callback", "body": "Win-back card with a copy-to-clipboard code; medium TTL.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "MakanGo", "vertical": "Food & Beverage", "accent": "#EF4444", "mock": "cardstack", "idx": 5, "title": "Order on the way", "template": "Icon", "trigger": "Rider assigned", "mech": "Live status card; opens map tracking. Short TTL.", "who": "Users with active orders", "when": "On rider assign", "why": "Tracking is a returning glance; the inbox holds it steady.", "kv": {"screen": "track", "order_id": "{{order_id}}"}, "kpis": ["Illustrative: track opens +20%"], "snip": "read_unread", "body": "Live status card; opens map tracking. Short TTL.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "SwiftRide", "vertical": "Ride-hailing", "accent": "#22C55E", "mock": "compact", "idx": 0, "title": "Rate your last ride", "template": "Simple", "trigger": "Trip completed", "mech": "Compact rating card; opens the rate flow when they return.", "who": "Recent riders", "when": "On trip end + delay", "why": "Ask on next open, not with a buzz as they walk away.", "kv": {"screen": "rate", "trip_id": "{{trip_id}}"}, "kpis": ["Illustrative: rating rate +11%"], "snip": "callback", "body": "Compact rating card; opens the rate flow when they return.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "SwiftRide", "vertical": "Ride-hailing", "accent": "#22C55E", "mock": "compact", "idx": 1, "title": "Ride pass pays for itself", "template": "Icon", "trigger": "Frequent-rider pattern", "mech": "Pass-offer icon card; math shown, buy CTA.", "who": "High-frequency riders", "when": "Segment trigger", "why": "A standing offer they can weigh at leisure converts better than a nag.", "kv": {"screen": "pass", "offer": "{{pass_id}}"}, "kpis": ["Illustrative: pass attach +6%"], "snip": "callback", "body": "Pass-offer icon card; math shown, buy CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "SwiftRide", "vertical": "Ride-hailing", "accent": "#22C55E", "mock": "compact", "idx": 2, "title": "Left something in the car?", "template": "Simple", "trigger": "Lost-item window", "mech": "Support card linking to lost-and-found; short TTL.", "who": "Riders post-trip", "when": "On trip end", "why": "A durable help card reduces frantic support pings.", "kv": {"screen": "lost", "trip_id": "{{trip_id}}"}, "kpis": ["Illustrative: support deflection +9%"], "snip": "callback", "body": "Support card linking to lost-and-found; short TTL.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "SwiftRide", "vertical": "Ride-hailing", "accent": "#22C55E", "mock": "compact", "idx": 3, "title": "Surge is over in your area", "template": "Simple", "trigger": "Surge cleared", "mech": "Status card that fares are back to normal; book CTA. Short TTL.", "who": "Users who bounced on surge", "when": "On surge clear", "why": "Catch the price-sensitive rider once the moment passes.", "kv": {"screen": "book", "area": "{{zone}}"}, "kpis": ["Illustrative: recovered rides +4%"], "snip": "callback", "body": "Status card that fares are back to normal; book CTA. Short TTL.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "SwiftRide", "vertical": "Ride-hailing", "accent": "#22C55E", "mock": "compact", "idx": 4, "title": "Weekend credits added", "template": "Icon", "trigger": "Promo credited", "mech": "Credit-balance card; book-now CTA. Medium TTL for the weekend.", "who": "Promo-eligible users", "when": "On credit event", "why": "Credits they can see waiting get spent.", "kv": {"screen": "wallet", "credit": "{{credit_amt}}"}, "kpis": ["Illustrative: credit redemption +8%"], "snip": "callback", "body": "Credit-balance card; book-now CTA. Medium TTL for the weekend.", "ttl": "4 days", "channel": "App Inbox"}, {"brand": "SwiftRide", "vertical": "Ride-hailing", "accent": "#22C55E", "mock": "compact", "idx": 5, "title": "Schedule your airport ride", "template": "Carousel+Content", "trigger": "Trip/booking signal", "mech": "Carousel of pickup options and fare estimates; tap to schedule.", "who": "Users with travel intent", "when": "Segment trigger", "why": "Plan-ahead intent suits a browseable card that waits.", "kv": {"screen": "schedule", "dest": "airport"}, "kpis": ["Illustrative: scheduled rides +5%"], "snip": "callback", "body": "Carousel of pickup options and fare estimates; tap to schedule.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Kitefare", "vertical": "Travel", "accent": "#06B6D4", "mock": "editorial", "idx": 0, "title": "Fare drop on your route", "template": "Simple", "trigger": "Watched-route price cut", "mech": "Text card flags a price drop on a saved route; book CTA. Short TTL.", "who": "Users watching a route", "when": "On price change", "why": "Fare alerts that wait a day beat a buzz missed in a meeting.", "kv": {"screen": "search", "route": "{{route}}"}, "kpis": ["Illustrative: route conv +9%"], "snip": "callback", "body": "Text card flags a price drop on a saved route; book CTA. Short TTL.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "Kitefare", "vertical": "Travel", "accent": "#06B6D4", "mock": "editorial", "idx": 1, "title": "Complete your booking", "template": "Icon", "trigger": "Booking abandoned", "mech": "Recovery card showing the itinerary; resume CTA.", "who": "Booking abandoners", "when": "Inaction-within-time", "why": "Trips are considered buys; the inbox waits for the decision.", "kv": {"screen": "resume", "booking_id": "{{booking_id}}"}, "kpis": ["Illustrative: booking recovery +8%"], "snip": "callback", "body": "Recovery card showing the itinerary; resume CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Kitefare", "vertical": "Travel", "accent": "#06B6D4", "mock": "editorial", "idx": 2, "title": "Check in now open", "template": "Icon", "trigger": "24h before departure", "mech": "Check-in reminder; opens check-in. Short TTL to departure.", "who": "Booked travellers", "when": "Date-property trigger", "why": "A dated task that parks itself beside the flight.", "kv": {"screen": "checkin", "pnr": "{{pnr}}"}, "kpis": ["Illustrative: on-app check-in +16%"], "snip": "read_unread", "body": "Check-in reminder; opens check-in. Short TTL to departure.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "Kitefare", "vertical": "Travel", "accent": "#06B6D4", "mock": "editorial", "idx": 3, "title": "Add a stay to your trip", "template": "Carousel+Content", "trigger": "Flight booked, no hotel", "mech": "Carousel of hotels near the destination; tap to add. Cross-sell.", "who": "Flight-only bookers", "when": "Segment trigger", "why": "A browseable stay menu that waits for planning mode.", "kv": {"screen": "hotels", "dest": "{{destination}}"}, "kpis": ["Illustrative: attach rate +7%"], "snip": "callback", "body": "Carousel of hotels near the destination; tap to add. Cross-sell.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Kitefare", "vertical": "Travel", "accent": "#06B6D4", "mock": "editorial", "idx": 4, "title": "Your trip starts in 3 days", "template": "Simple", "trigger": "Pre-trip window", "mech": "Countdown card with a packing/essentials CTA; builds anticipation.", "who": "Travellers pre-departure", "when": "Date-property trigger", "why": "Anticipation content lives well in a place they revisit.", "kv": {"screen": "trip", "booking_id": "{{booking_id}}"}, "kpis": ["Illustrative: ancillary sales +5%"], "snip": "callback", "body": "Countdown card with a packing/essentials CTA; builds anticipation.", "ttl": "4 days", "channel": "App Inbox"}, {"brand": "Kitefare", "vertical": "Travel", "accent": "#06B6D4", "mock": "editorial", "idx": 5, "title": "Points expiring soon", "template": "Simple", "trigger": "Loyalty points near expiry", "mech": "Expiry reminder with redeem CTA; medium TTL.", "who": "Members with expiring points", "when": "Date-property trigger", "why": "Expiry reminders are the inbox's home turf.", "kv": {"screen": "redeem", "points": "{{points}}"}, "kpis": ["Illustrative: redemption +10%"], "snip": "callback", "body": "Expiry reminder with redeem CTA; medium TTL.", "ttl": "10 days", "channel": "App Inbox"}, {"brand": "Nebula Arena", "vertical": "Gaming / Esports", "accent": "#A855F7", "mock": "darklux", "idx": 0, "title": "Daily reward waiting", "template": "Icon", "trigger": "Daily login streak", "mech": "Reward-claim card; claim CTA. Resets daily, drives the streak.", "who": "Active players", "when": "Daily trigger", "why": "A standing claim card is a reason to open every day.", "kv": {"screen": "claim", "day": "{{streak_day}}"}, "kpis": ["Illustrative: DAU +9%"], "snip": "read_unread", "body": "Reward-claim card; claim CTA. Resets daily, drives the streak.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Nebula Arena", "vertical": "Gaming / Esports", "accent": "#A855F7", "mock": "darklux", "idx": 1, "title": "New season is live", "template": "Carousel (image only)", "trigger": "Season launch", "mech": "Cinematic poster carousel; image-only for hype. Tap to jump in.", "who": "Lapsed + active players", "when": "On season start", "why": "Hype visuals that wait for the player's next session.", "kv": {"screen": "season", "season_id": "{{season_id}}"}, "kpis": ["Illustrative: season D1 +12%"], "snip": "callback", "body": "Cinematic poster carousel; image-only for hype. Tap to jump in.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Nebula Arena", "vertical": "Gaming / Esports", "accent": "#A855F7", "mock": "darklux", "idx": 2, "title": "Your squad is waiting", "template": "Simple", "trigger": "Friends online", "mech": "Social nudge card; join-lobby CTA. Short TTL for presence.", "who": "Players with online friends", "when": "Live behaviour", "why": "Social pull that waits a beat catches them at the right moment.", "kv": {"screen": "lobby", "lobby_id": "{{lobby_id}}"}, "kpis": ["Illustrative: session starts +7%"], "snip": "callback", "body": "Social nudge card; join-lobby CTA. Short TTL for presence.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "Nebula Arena", "vertical": "Gaming / Esports", "accent": "#A855F7", "mock": "darklux", "idx": 3, "title": "Limited skin, 48h only", "template": "Carousel+Content", "trigger": "Store drop", "mech": "Store carousel of limited items with prices; tap to buy. Short TTL.", "who": "Cosmetic buyers", "when": "On store drop", "why": "Scarcity plus shelf life: the drop waits the full 48h in the inbox.", "kv": {"screen": "store", "item": "{{item_id}}"}, "kpis": ["Illustrative: store conv +8%"], "snip": "callback", "body": "Store carousel of limited items with prices; tap to buy. Short TTL.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "Nebula Arena", "vertical": "Gaming / Esports", "accent": "#A855F7", "mock": "darklux", "idx": 4, "title": "Battle pass 80% done", "template": "Icon", "trigger": "Pass near complete", "mech": "Progress card nudging pass completion; play CTA.", "who": "Battle-pass holders", "when": "Segment trigger", "why": "Completion nudges lift both spend and retention.", "kv": {"screen": "pass", "progress": "{{pct}}"}, "kpis": ["Illustrative: pass completion +6%"], "snip": "callback", "body": "Progress card nudging pass completion; play CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Nebula Arena", "vertical": "Gaming / Esports", "accent": "#A855F7", "mock": "darklux", "idx": 5, "title": "We saved your progress", "template": "Simple", "trigger": "Lapsed 14 days", "mech": "Win-back card highlighting saved progress; return CTA. Medium TTL.", "who": "Lapsed players", "when": "Inaction segment", "why": "Loss-aversion done kindly, waiting for them to return.", "kv": {"screen": "resume", "save_id": "{{save_id}}"}, "kpis": ["Illustrative: reactivation +5%"], "snip": "callback", "body": "Win-back card highlighting saved progress; return CTA. Medium TTL.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "BrightPath", "vertical": "EdTech", "accent": "#6366F1", "mock": "tabs", "idx": 0, "title": "Continue your course", "template": "Icon", "trigger": "Lesson left incomplete", "mech": "Resume card with progress bar; opens the next lesson.", "who": "Enrolled learners", "when": "On lesson exit", "why": "A resume card in the inbox turns good intentions into a next session.", "kv": {"screen": "lesson", "course_id": "{{course_id}}"}, "kpis": ["Illustrative: lesson resume +13%"], "snip": "callback", "body": "Resume card with progress bar; opens the next lesson.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "BrightPath", "vertical": "EdTech", "accent": "#6366F1", "mock": "tabs", "idx": 1, "title": "Streak at risk", "template": "Simple", "trigger": "No study today", "mech": "Streak-save card; short TTL for the day. Gentle, not guilt-trippy.", "who": "Streak holders", "when": "Daily inaction", "why": "A standing nudge that respects the reader keeps streaks alive.", "kv": {"screen": "study", "streak": "{{streak}}"}, "kpis": ["Illustrative: streak retention +8%"], "snip": "callback", "body": "Streak-save card; short TTL for the day. Gentle, not guilt-trippy.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "BrightPath", "vertical": "EdTech", "accent": "#6366F1", "mock": "tabs", "idx": 2, "title": "New course you'll like", "template": "Carousel+Content", "trigger": "Interest affinity", "mech": "Carousel of recommended courses; tap a slide to preview.", "who": "Affine learners", "when": "Weekly recommender", "why": "A browseable course shelf that waits for study mood.", "kv": {"screen": "catalog", "reco": "{{reco_id}}"}, "kpis": ["Illustrative: enrol rate +6%"], "snip": "kv_render", "body": "Carousel of recommended courses; tap a slide to preview.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "BrightPath", "vertical": "EdTech", "accent": "#6366F1", "mock": "tabs", "idx": 3, "title": "Assignment due tomorrow", "template": "Icon", "trigger": "Deadline approaching", "mech": "Deadline card; opens assignment. Short TTL to due date.", "who": "Learners with due work", "when": "Date-property trigger", "why": "A dated task that parks beside the deadline.", "kv": {"screen": "assignment", "id": "{{assignment_id}}"}, "kpis": ["Illustrative: on-time submit +10%"], "snip": "read_unread", "body": "Deadline card; opens assignment. Short TTL to due date.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "BrightPath", "vertical": "EdTech", "accent": "#6366F1", "mock": "tabs", "idx": 4, "title": "Certificate ready", "template": "Icon", "trigger": "Course completed", "mech": "Achievement card; download/share CTA. Long TTL for keeps.", "who": "Course completers", "when": "On completion", "why": "A keepsake belongs in a place with memory.", "kv": {"screen": "cert", "cert_id": "{{cert_id}}"}, "kpis": ["Illustrative: share rate +9%"], "snip": "callback", "body": "Achievement card; download/share CTA. Long TTL for keeps.", "ttl": "30 days", "channel": "App Inbox"}, {"brand": "BrightPath", "vertical": "EdTech", "accent": "#6366F1", "mock": "tabs", "idx": 5, "title": "Live class starting soon", "template": "Simple", "trigger": "Session in 30 min", "mech": "Join-reminder card; join CTA. Very short TTL.", "who": "Enrolled in live cohort", "when": "Date-property trigger", "why": "A timely join prompt that waits until it matters.", "kv": {"screen": "live", "session_id": "{{session_id}}"}, "kpis": ["Illustrative: live attendance +11%"], "snip": "callback", "body": "Join-reminder card; join CTA. Very short TTL.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "Ovia Health", "vertical": "HealthTech", "accent": "#10B981", "mock": "rounded", "idx": 0, "title": "Log today's reading", "template": "Simple", "trigger": "No log today", "mech": "Gentle logging nudge; opens tracker. Short TTL, non-clinical tone.", "who": "Tracking users", "when": "Daily inaction", "why": "A soft standing reminder builds the daily habit without pressure.", "kv": {"screen": "log", "metric": "{{metric}}"}, "kpis": ["Illustrative: daily logging +10%"], "snip": "callback", "body": "Gentle logging nudge; opens tracker. Short TTL, non-clinical tone.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "Ovia Health", "vertical": "HealthTech", "accent": "#10B981", "mock": "rounded", "idx": 1, "title": "Appointment tomorrow", "template": "Icon", "trigger": "Booking 24h out", "mech": "Appointment card with details; reschedule CTA. Short TTL.", "who": "Users with bookings", "when": "Date-property trigger", "why": "A dated reminder that waits beside the appointment.", "kv": {"screen": "appt", "appt_id": "{{appt_id}}"}, "kpis": ["Illustrative: no-shows -12%"], "snip": "read_unread", "body": "Appointment card with details; reschedule CTA. Short TTL.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "Ovia Health", "vertical": "HealthTech", "accent": "#10B981", "mock": "rounded", "idx": 2, "title": "Your weekly summary", "template": "Carousel+Content", "trigger": "Weekly cycle", "mech": "Carousel summarising the week's readings; tap for detail.", "who": "Active trackers", "when": "Weekly trigger", "why": "A digest they can revisit encourages reflection and retention.", "kv": {"screen": "summary", "week": "{{week}}"}, "kpis": ["Illustrative: W2 retention +7%"], "snip": "callback", "body": "Carousel summarising the week's readings; tap for detail.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "Ovia Health", "vertical": "HealthTech", "accent": "#10B981", "mock": "rounded", "idx": 3, "title": "Refill reminder", "template": "Simple", "trigger": "Prescription runs low", "mech": "Refill card; order/renew CTA. Medium TTL to run-out date.", "who": "Users on a plan", "when": "Date-property trigger", "why": "Refills are dated events; the inbox parks the reminder.", "kv": {"screen": "refill", "rx_id": "{{rx_id}}"}, "kpis": ["Illustrative: refill on-time +9%"], "snip": "callback", "body": "Refill card; order/renew CTA. Medium TTL to run-out date.", "ttl": "5 days", "channel": "App Inbox"}, {"brand": "Ovia Health", "vertical": "HealthTech", "accent": "#10B981", "mock": "rounded", "idx": 4, "title": "Reach your step goal", "template": "Icon", "trigger": "Behind on goal", "mech": "Encouragement card; short TTL. Positive framing only.", "who": "Wellness users", "when": "Segment trigger", "why": "Kind encouragement they can return to supports the goal.", "kv": {"screen": "activity", "goal": "{{goal}}"}, "kpis": ["Illustrative: goal completion +6%"], "snip": "callback", "body": "Encouragement card; short TTL. Positive framing only.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "Ovia Health", "vertical": "HealthTech", "accent": "#10B981", "mock": "rounded", "idx": 5, "title": "New guided program", "template": "Carousel+Content", "trigger": "Interest signal", "mech": "Carousel of programs matched to goals; tap to start.", "who": "Goal-set users", "when": "Segment trigger", "why": "A browseable program shelf that waits for readiness.", "kv": {"screen": "programs", "reco": "{{program_id}}"}, "kpis": ["Illustrative: program starts +5%"], "snip": "callback", "body": "Carousel of programs matched to goals; tap to start.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "FreshCart", "vertical": "Grocery", "accent": "#84CC16", "mock": "wallet", "idx": 0, "title": "Your basket is ready to reorder", "template": "Icon", "trigger": "Weekly shop pattern", "mech": "Reorder card with the usual basket; one-tap reorder. Wallet-style.", "who": "Weekly shoppers", "when": "Segment trigger", "why": "A standing basket in the inbox turns routine into one tap.", "kv": {"screen": "reorder", "basket": "{{basket_id}}"}, "kpis": ["Illustrative: reorder rate +11%"], "snip": "callback", "body": "Reorder card with the usual basket; one-tap reorder. Wallet-style.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "FreshCart", "vertical": "Grocery", "accent": "#84CC16", "mock": "wallet", "idx": 1, "title": "Delivery slot confirmed", "template": "Icon", "trigger": "Order scheduled", "mech": "Slot card; opens order. Short TTL to the slot. Manage-order CTA.", "who": "Users with slots booked", "when": "On slot booking", "why": "A dated confirmation the inbox keeps until delivery.", "kv": {"screen": "order", "slot": "{{slot}}"}, "kpis": ["Illustrative: WISMO -14%"], "snip": "read_unread", "body": "Slot card; opens order. Short TTL to the slot. Manage-order CTA.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "FreshCart", "vertical": "Grocery", "accent": "#84CC16", "mock": "wallet", "idx": 2, "title": "Weekend deals inside", "template": "Carousel (image only)", "trigger": "Weekly promo", "mech": "Poster carousel of grocery deals; image-only. Medium TTL.", "who": "Deal-seeking shoppers", "when": "Scheduled campaign", "why": "Deals that wait through the weekend in one tidy card.", "kv": {"screen": "deals", "campaign": "{{campaign_id}}"}, "kpis": ["Illustrative: weekend GMV +6%"], "snip": "callback", "body": "Poster carousel of grocery deals; image-only. Medium TTL.", "ttl": "3 days", "channel": "App Inbox"}, {"brand": "FreshCart", "vertical": "Grocery", "accent": "#84CC16", "mock": "wallet", "idx": 3, "title": "Low on your staples?", "template": "Simple", "trigger": "Replenishment cycle", "mech": "Predictive replenishment card; add-to-cart CTA.", "who": "Repeat buyers of staples", "when": "Segment trigger", "why": "A helpful nudge that waits until they are ready to shop.", "kv": {"screen": "cart", "items": "{{staples}}"}, "kpis": ["Illustrative: basket size +5%"], "snip": "callback", "body": "Predictive replenishment card; add-to-cart CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "FreshCart", "vertical": "Grocery", "accent": "#84CC16", "mock": "wallet", "idx": 4, "title": "Coupon in your wallet", "template": "Simple", "trigger": "Coupon issued", "mech": "Wallet-style coupon card; copy-to-clipboard code. Medium TTL.", "who": "Coupon-eligible users", "when": "On coupon issue", "why": "A coupon that sits in the wallet gets used; a push gets lost.", "kv": {"screen": "cart", "promo": "FRESH15"}, "kpis": ["Illustrative: coupon use +12%"], "snip": "callback", "body": "Wallet-style coupon card; copy-to-clipboard code. Medium TTL.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "FreshCart", "vertical": "Grocery", "accent": "#84CC16", "mock": "wallet", "idx": 5, "title": "Rate your delivery", "template": "Simple", "trigger": "Order delivered", "mech": "Review card; opens rating. Ask on next open.", "who": "Recently delivered", "when": "On delivery + delay", "why": "Feedback asked at a calm moment gets better answers.", "kv": {"screen": "review", "order_id": "{{order_id}}"}, "kpis": ["Illustrative: review rate +8%"], "snip": "callback", "body": "Review card; opens rating. Ask on next open.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "The Daily Lens", "vertical": "News / Media", "accent": "#F43F5E", "mock": "chat", "idx": 0, "title": "Your morning briefing", "template": "Carousel+Content", "trigger": "Daily digest time", "mech": "Carousel of the day's top stories; tap a slide to read. Chat-style.", "who": "Daily readers", "when": "Daily trigger", "why": "A briefing that waits for coffee time, not a 6am buzz.", "kv": {"screen": "article", "story_id": "{{story_id}}"}, "kpis": ["Illustrative: morning opens +10%"], "snip": "callback", "body": "Carousel of the day's top stories; tap a slide to read. Chat-style.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "The Daily Lens", "vertical": "News / Media", "accent": "#F43F5E", "mock": "chat", "idx": 1, "title": "Breaking: story developing", "template": "Simple", "trigger": "Breaking-news event", "mech": "Alert card, very short TTL; opens live story. Push + inbox pairing.", "who": "News-alert subscribers", "when": "On breaking event", "why": "Push grabs attention; the inbox keeps the thread as it develops.", "kv": {"screen": "live", "story_id": "{{story_id}}"}, "kpis": ["Illustrative: live-story reads +15%"], "snip": "callback", "body": "Alert card, very short TTL; opens live story. Push + inbox pairing.", "ttl": "1 day", "channel": "App Inbox"}, {"brand": "The Daily Lens", "vertical": "News / Media", "accent": "#F43F5E", "mock": "chat", "idx": 2, "title": "Finish reading later", "template": "Icon", "trigger": "Article left unread", "mech": "Save-for-later card resumes the article; opens where they stopped.", "who": "Partial readers", "when": "On exit", "why": "A read-it-later card that actually waits until later.", "kv": {"screen": "article", "story_id": "{{story_id}}"}, "kpis": ["Illustrative: completion +9%"], "snip": "read_unread", "body": "Save-for-later card resumes the article; opens where they stopped.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "The Daily Lens", "vertical": "News / Media", "accent": "#F43F5E", "mock": "chat", "idx": 3, "title": "Your team's match report", "template": "Simple", "trigger": "Followed-topic update", "mech": "Topic card for a followed team/subject; opens report.", "who": "Topic followers", "when": "On publish", "why": "Follows deserve a durable home, not a fleeting buzz.", "kv": {"screen": "topic", "topic_id": "{{topic_id}}"}, "kpis": ["Illustrative: topic engagement +7%"], "snip": "callback", "body": "Topic card for a followed team/subject; opens report.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "The Daily Lens", "vertical": "News / Media", "accent": "#F43F5E", "mock": "chat", "idx": 4, "title": "Trial ends in 2 days", "template": "Simple", "trigger": "Subscription trial ending", "mech": "Conversion card; subscribe CTA. Short TTL to trial end.", "who": "Trial subscribers", "when": "Date-property trigger", "why": "A dated conversion prompt that waits by the deadline.", "kv": {"screen": "subscribe", "plan": "{{plan_id}}"}, "kpis": ["Illustrative: trial-to-paid +6%"], "snip": "callback", "body": "Conversion card; subscribe CTA. Short TTL to trial end.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "The Daily Lens", "vertical": "News / Media", "accent": "#F43F5E", "mock": "chat", "idx": 5, "title": "Weekly long-reads", "template": "Carousel (image only)", "trigger": "Weekend digest", "mech": "Cover carousel of long-form features; image-only. Medium TTL.", "who": "Engaged readers", "when": "Weekly trigger", "why": "A weekend reading shelf that waits for downtime.", "kv": {"screen": "feature", "story_id": "{{story_id}}"}, "kpis": ["Illustrative: weekend reads +8%"], "snip": "callback", "body": "Cover carousel of long-form features; image-only. Medium TTL.", "ttl": "4 days", "channel": "App Inbox"}, {"brand": "OrbitPoints", "vertical": "Loyalty", "accent": "#EAB308", "mock": "carousel", "idx": 0, "title": "You've got new points", "template": "Icon", "trigger": "Points credited", "mech": "Balance card; browse-rewards CTA. Carousel-in-inbox family.", "who": "Members earning points", "when": "On earn event", "why": "Seeing the balance waiting invites the next redemption.", "kv": {"screen": "balance", "points": "{{points}}"}, "kpis": ["Illustrative: redemption +9%"], "snip": "read_unread", "body": "Balance card; browse-rewards CTA. Carousel-in-inbox family.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "OrbitPoints", "vertical": "Loyalty", "accent": "#EAB308", "mock": "carousel", "idx": 1, "title": "Rewards you can afford now", "template": "Carousel+Content", "trigger": "Threshold reached", "mech": "Carousel of rewards within reach; tap to redeem.", "who": "Members above threshold", "when": "Segment trigger", "why": "A tailored reward shelf that waits for a treat-yourself moment.", "kv": {"screen": "redeem", "reco": "{{reward_id}}"}, "kpis": ["Illustrative: redemption value +7%"], "snip": "callback", "body": "Carousel of rewards within reach; tap to redeem.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "OrbitPoints", "vertical": "Loyalty", "accent": "#EAB308", "mock": "carousel", "idx": 2, "title": "Double points this weekend", "template": "Simple", "trigger": "Promo window", "mech": "Boost card; short TTL for the weekend. Earn-now CTA.", "who": "Active earners", "when": "Scheduled campaign", "why": "A boost that waits the whole window, not one buzz.", "kv": {"screen": "earn", "multiplier": "2x"}, "kpis": ["Illustrative: weekend earn +8%"], "snip": "callback", "body": "Boost card; short TTL for the weekend. Earn-now CTA.", "ttl": "3 days", "channel": "App Inbox"}, {"brand": "OrbitPoints", "vertical": "Loyalty", "accent": "#EAB308", "mock": "carousel", "idx": 3, "title": "Points expiring this month", "template": "Simple", "trigger": "Points near expiry", "mech": "Expiry reminder; redeem CTA. Medium TTL.", "who": "Members with expiring points", "when": "Date-property trigger", "why": "Expiry reminders belong in the inbox by design.", "kv": {"screen": "redeem", "points": "{{points}}"}, "kpis": ["Illustrative: expiry redemption +11%"], "snip": "callback", "body": "Expiry reminder; redeem CTA. Medium TTL.", "ttl": "14 days", "channel": "App Inbox"}, {"brand": "OrbitPoints", "vertical": "Loyalty", "accent": "#EAB308", "mock": "carousel", "idx": 4, "title": "Tier upgrade unlocked", "template": "Icon", "trigger": "Tier threshold crossed", "mech": "Celebration card; view-perks CTA. Long TTL for the status.", "who": "Newly-upgraded members", "when": "On tier change", "why": "Status is a keeper; give it shelf life.", "kv": {"screen": "tier", "tier": "{{tier}}"}, "kpis": ["Illustrative: perk use +6%"], "snip": "callback", "body": "Celebration card; view-perks CTA. Long TTL for the status.", "ttl": "30 days", "channel": "App Inbox"}, {"brand": "OrbitPoints", "vertical": "Loyalty", "accent": "#EAB308", "mock": "carousel", "idx": 5, "title": "Partner offer just for you", "template": "Carousel+Content", "trigger": "Partner campaign", "mech": "Carousel of partner offers; tap to claim. Cross-brand value.", "who": "Eligible members", "when": "Segment trigger", "why": "A partner shelf that waits for the right moment to spend.", "kv": {"screen": "partner", "offer": "{{offer_id}}"}, "kpis": ["Illustrative: partner conv +5%"], "snip": "callback", "body": "Carousel of partner offers; tap to claim. Cross-brand value.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "HavenList", "vertical": "Classifieds", "accent": "#F59E0B", "mock": "icon", "idx": 0, "title": "New listings match your search", "template": "Icon", "trigger": "Saved-search match", "mech": "Match card; opens listing. Icon-message compact family.", "who": "Users with saved searches", "when": "On new match", "why": "Matches that wait in the inbox get seen when they are browsing.", "kv": {"screen": "listing", "id": "{{listing_id}}"}, "kpis": ["Illustrative: listing views +10%"], "snip": "read_unread", "body": "Match card; opens listing. Icon-message compact family.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "HavenList", "vertical": "Classifieds", "accent": "#F59E0B", "mock": "icon", "idx": 1, "title": "Price drop on a saved home", "template": "Simple", "trigger": "Saved-listing price cut", "mech": "Price-drop card; short TTL urgency. Opens listing.", "who": "Users with saved listings", "when": "On price change", "why": "A durable alert catches them between browsing sessions.", "kv": {"screen": "listing", "id": "{{listing_id}}"}, "kpis": ["Illustrative: contact rate +8%"], "snip": "callback", "body": "Price-drop card; short TTL urgency. Opens listing.", "ttl": "3 days", "channel": "App Inbox"}, {"brand": "HavenList", "vertical": "Classifieds", "accent": "#F59E0B", "mock": "icon", "idx": 2, "title": "Someone messaged you", "template": "Simple", "trigger": "Inbound message", "mech": "Conversation nudge; opens chat. Short TTL. Chat-thread family.", "who": "Listers/buyers", "when": "On message received", "why": "A durable conversation nudge keeps deals from going cold.", "kv": {"screen": "chat", "thread_id": "{{thread_id}}"}, "kpis": ["Illustrative: reply rate +12%"], "snip": "callback", "body": "Conversation nudge; opens chat. Short TTL. Chat-thread family.", "ttl": "2 days", "channel": "App Inbox"}, {"brand": "HavenList", "vertical": "Classifieds", "accent": "#F59E0B", "mock": "icon", "idx": 3, "title": "Boost your listing", "template": "Icon", "trigger": "Listing views plateau", "mech": "Upsell card offering a visibility boost; buy CTA.", "who": "Sellers with slow listings", "when": "Segment trigger", "why": "A standing upsell they can weigh converts better than a nag.", "kv": {"screen": "boost", "listing_id": "{{listing_id}}"}, "kpis": ["Illustrative: boost attach +6%"], "snip": "callback", "body": "Upsell card offering a visibility boost; buy CTA.", "ttl": "7 days", "channel": "App Inbox"}, {"brand": "HavenList", "vertical": "Classifieds", "accent": "#F59E0B", "mock": "icon", "idx": 4, "title": "Your listing expires soon", "template": "Simple", "trigger": "Listing near expiry", "mech": "Renewal reminder; renew CTA. Medium TTL to expiry.", "who": "Sellers near expiry", "when": "Date-property trigger", "why": "Expiry is dated; the inbox waits by the date.", "kv": {"screen": "renew", "listing_id": "{{listing_id}}"}, "kpis": ["Illustrative: renewal +7%"], "snip": "callback", "body": "Renewal reminder; renew CTA. Medium TTL to expiry.", "ttl": "5 days", "channel": "App Inbox"}, {"brand": "HavenList", "vertical": "Classifieds", "accent": "#F59E0B", "mock": "icon", "idx": 5, "title": "Popular in your area", "template": "Carousel+Content", "trigger": "Local trend", "mech": "Carousel of trending local listings; tap to view.", "who": "Area browsers", "when": "Weekly trigger", "why": "A local shelf that waits for the next browse.", "kv": {"screen": "area", "area_id": "{{area_id}}"}, "kpis": ["Illustrative: session depth +5%"], "snip": "callback", "body": "Carousel of trending local listings; tap to view.", "ttl": "7 days", "channel": "App Inbox"}]};
+const $ = (s,r=document)=>r.querySelector(s);
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+const esc = s => (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---- theme ---- */
+const root=document.documentElement;
+function setTheme(t){root.setAttribute('data-theme',t);
+  $('#themeIcon').textContent=t==='night'?'☾':'☀';
+  $('#themeTxt').textContent=t==='night'?'Night':'Day';
+  const si=$('#sThemeIcon'); if(si) si.textContent=t==='night'?'☾':'☀';
+  const st=$('#sThemeTxt'); if(st) st.textContent=t==='night'?'Night':'Day';
+  try{localStorage.setItem('fg13-theme',t)}catch(e){}}
+(function(){let t='night';try{t=localStorage.getItem('fg13-theme')||'night'}catch(e){}
+  if(window.matchMedia && !((()=>{try{return localStorage.getItem('fg13-theme')}catch(e){return null}})())){
+    t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'day':'night';}
+  setTheme(t);})();
+$('#themeBtn').addEventListener('click',()=>setTheme(root.getAttribute('data-theme')==='night'?'day':'night'));
+$('#sTheme')?.addEventListener('click',(e)=>{e.stopPropagation();setTheme(root.getAttribute('data-theme')==='night'?'day':'night');$('#sEnter')?.focus();});
+
+/* ---- mockup builder ---- */
+function rows(style, o){
+  const a=o.accent, t=esc(o.title||'Message title'), b=esc(o.body||'A short line of body copy sits here.');
+  const ic = c=>`<span class="ib-ic${style==='rounded'?' round':''}" style="background:${c}"></span>`;
+  const un = `<span class="ib-un" style="background:${a}"></span>`;
+  const row = (title,body,icon=true,dot=true)=>`<div class="ib-row">${icon?ic(a):''}<div class="ib-tx"><div class="ib-tt">${title}</div><div class="ib-bd">${body}</div></div>${dot?un:''}</div>`;
+  const media = h=>`<div class="ib-media" style="height:${h}px;background:linear-gradient(120deg,${a},color-mix(in srgb,${a} 40%,#000))"></div>`;
+  const cta = ()=>`<div class="ib-cta"><b style="background:${a}">Open</b><b style="background:transparent;border:1px solid var(--line2);color:var(--muted)">Later</b></div>`;
+  switch(style){
+    case 'list': case 'dense': case 'compact':
+      return row(t,b)+row('Reminder waiting','Still here when you look')+row('Update','Tap to view')+(style==='dense'?row('Statement','Ready to open'):'');
+    case 'cardstack':
+      return `<div class="ib-card">${row(t,b,true,false)}${cta()}</div><div class="ib-card">${row('Second card','One clear action',true,false)}${cta()}</div>`;
+    case 'media':
+      return media(46)+row(t,b)+row('More to see','Tap to open');
+    case 'editorial':
+      return `<div style="position:relative">${media(96)}<div style="position:absolute;bottom:6px;left:8px;right:8px;color:#fff"><div class="ib-tt" style="color:#fff">${t}</div><div class="ib-bd" style="color:rgba(255,255,255,.85)">${b}</div></div></div>`+row('Next feature','Swipe through');
+    case 'carousel':
+      return media(52)+`<div class="ib-dots"><i class="on"></i><i></i><i></i></div>`+row(t,b,false)+cta();
+    case 'commerce':
+      return media(50)+`<div class="ib-row">${ic(a)}<div class="ib-tx"><div class="ib-tt">${t}</div><div class="ib-bd" style="color:${a};font-weight:700">Deal ends soon</div></div></div>`+cta();
+    case 'wallet':
+      return `<div class="ib-card" style="border-style:dashed;border-color:${a}"><div class="ib-row" style="border:none">${ic(a)}<div class="ib-tx"><div class="ib-tt">${t}</div><div class="ib-bd" style="font-family:var(--font-m)">CODE · SAVE15</div></div></div></div>`+row('Second pass','Tap to keep');
+    case 'chat':
+      return `<div class="ib-row" style="border:none;padding-bottom:4px"><div class="ib-tx"><div class="ib-bd" style="background:var(--bg2);border-radius:10px;padding:6px 8px;display:inline-block">${t}</div></div></div>`+
+             `<div class="ib-row" style="border:none;justify-content:flex-end"><div class="ib-tx" style="flex:0 1 auto"><div class="ib-bd" style="background:${a};color:#fff;border-radius:10px;padding:6px 8px;display:inline-block">${b}</div></div></div>`+row('New thread','Reply waiting');
+    case 'timeline':
+      return ['Step done','In progress','Up next'].map((s,i)=>`<div class="ib-row"><span style="width:8px;height:8px;border-radius:50%;background:${i<2?a:'var(--line2)'};margin-top:4px;box-shadow:0 12px 0 -3px var(--line2)"></span><div class="ib-tx"><div class="ib-tt">${i===0?t:s}</div><div class="ib-bd">${i===0?b:'Status update'}</div></div></div>`).join('');
+    case 'darklux':
+      return `<div style="background:#0a0a12;margin:-1px;padding:2px">${row('<span style=color:'+a+'>'+t+'</span>',b)}${row('Season pass','80% complete')}</div>`;
+    case 'rounded':
+      return row(t,b)+row('Gentle nudge','Whenever you are ready')+row('Weekly summary','Tap to reflect');
+    case 'tabs':
+      return `<div class="ib-tabs"><span class="on" style="background:${a}">Offers</span><span>Updates</span><span>All</span></div>`+row(t,b)+row('Update','In another tab');
+    default: return row(t,b)+row('Message','Tap to view');
+  }
+}
+function phone(style,o,wire){
+  const head=`<div class="ib-hd">${wire?'&nbsp;':'App Inbox'}</div>`;
+  const inner = wire ? wireRows(style) : rows(style,o);
+  return `<div class="phone${wire?' wire':''}"><div class="notch"></div><div class="screen">${head}${inner}</div></div>`;
+}
+function wireRows(style){
+  const bar=(w)=>`<div style="height:7px;border-radius:4px;background:var(--line2);width:${w}"></div>`;
+  const block=(h)=>`<div style="height:${h}px;border-radius:6px;background:var(--line);margin:6px 8px"></div>`;
+  const r=`<div class="ib-row"><span class="ib-ic" style="background:var(--line2)"></span><div class="ib-tx" style="display:grid;gap:5px">${bar('70%')}${bar('90%')}</div></div>`;
+  if(style==='editorial'||style==='media'||style==='carousel'||style==='commerce') return block(46)+r+r;
+  if(style==='cardstack'||style==='wallet') return block(30)+block(30);
+  if(style==='tabs') return `<div class="ib-tabs"><span></span><span></span><span></span></div>`+r+r+r;
+  return r+r+r+(style==='dense'?r:'');
+}
+function browser(o,tabs){
+  const a=o.accent;
+  const panel=`<div class="wpanel"><div class="wh" style="background:${a}">Notifications</div>`+
+    (tabs?`<div class="ib-tabs"><span class="on" style="background:${a};font-size:7px">Offers</span><span style="font-size:7px">All</span></div>`:'')+
+    `<div class="ib-media" style="height:32px;margin:6px;border-radius:4px;background:linear-gradient(120deg,${a},color-mix(in srgb,${a} 40%,#000))"></div>`+
+    `<div class="ib-row" style="padding:6px"><div class="ib-tx"><div class="ib-tt" style="font-size:8px">${esc(o.title||'Notification')}</div><div class="ib-bd" style="font-size:7px">${esc(o.body||'Body copy')}</div></div><span class="ib-un" style="background:#FF5353"></span></div></div>`;
+  return `<div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="body"><div class="bell">🔔<b>8+</b></div>${panel}</div></div>`;
+}
+function webWire(tabs){
+  return `<div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="body"><div class="bell" style="background:var(--line2)"></div><div class="wpanel"><div class="wh" style="background:var(--line2)">&nbsp;</div>${tabs?'<div class="ib-tabs"><span></span><span></span></div>':''}<div style="height:30px;background:var(--line);margin:6px;border-radius:4px"></div><div style="height:7px;background:var(--line2);margin:6px;border-radius:4px;width:70%"></div></div></div></div>`;
+}
+
+/* ---- treatments render ---- */
+const trtGrid=$('#trtGrid');
+function renderTreatments(filter){
+  const list=DATA.treatments.filter(t=>filter==='all'||t[3-1]===filter||t[3]===filter);
+  // treatment tuple: [id,name,family,when,ct_map]
+  const items=DATA.treatments.filter(t=> filter==='all'|| t[2]===filter);
+  trtGrid.innerHTML=items.map(t=>{
+    const [id,name,family,when,map]=t;
+    const demoBrand={accent:family==='web'?'#F4BA59':'#ff7a68',title:name,body:'A representative message in this style.'};
+    const left = family==='web'? webWire(id==='webtabs') : phone(id,demoBrand,true);
+    const right= family==='web'? browser({accent:'#F4BA59',title:name,body:'Styled from the dashboard.'},id==='webtabs') : phone(id,demoBrand,false);
+    return `<div class="trt reveal">
+      <div class="mocks">
+        <div class="mockcol"><span class="mlabel">Structure</span>${left}</div>
+        <div class="mockcol"><span class="mlabel">In brand</span>${right}</div>
+      </div>
+      <div class="body">
+        <h3>${esc(name)}</h3>
+        <div class="when">${esc(when)}</div>
+        <div class="map"><b>Delivered by:</b> ${esc(map)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  $('#trtCount').textContent=items.length+' shown';
+  observeReveals();
+}
+$$('#trtControls .filt').forEach(btn=>btn.addEventListener('click',()=>{
+  $$('#trtControls .filt').forEach(b=>b.setAttribute('aria-pressed','false'));
+  btn.setAttribute('aria-pressed','true');
+  renderTreatments(btn.dataset.tf);
+}));
+
+/* ---- gallery render ---- */
+const ucGrid=$('#ucGrid');
+let vf='all', cf='all';
+function tShort(t){return t;}
+function renderCards(){
+  const list=DATA.cards.filter(c=>(vf==='all'||c.vertical===vf)&&(cf==='all'||c.template===cf));
+  ucGrid.innerHTML=list.map((c)=>{
+    const i=DATA.cards.indexOf(c);
+    const mini=phone(c.mock,{accent:c.accent,title:c.title,body:c.body},false);
+    return `<button class="uc reveal" data-i="${i}" aria-haspopup="dialog">
+      <div class="top">
+        <div class="mini">${mini}</div>
+        <div class="txt"><div class="vt">${esc(c.vertical)}</div><div class="br">${esc(c.brand)}</div><h4>${esc(c.title)}</h4></div>
+      </div>
+      <div class="foot"><span class="tchip">${esc(c.template)}</span><span class="tchip">TTL ${esc(c.ttl)}</span><span class="more">Deep dive →</span></div>
+    </button>`;
+  }).join('');
+  $('#ucCount').textContent=list.length+' of 90';
+  $$('#ucGrid .uc').forEach(b=>b.addEventListener('click',()=>openModal(+b.dataset.i)));
+  observeReveals();
+}
+$$('[data-vf]').forEach(btn=>btn.addEventListener('click',()=>{
+  $$('[data-vf]').forEach(b=>b.setAttribute('aria-pressed','false'));btn.setAttribute('aria-pressed','true');
+  vf=btn.dataset.vf;renderCards();}));
+$$('[data-cf]').forEach(btn=>btn.addEventListener('click',()=>{
+  $$('[data-cf]').forEach(b=>b.setAttribute('aria-pressed','false'));btn.setAttribute('aria-pressed','true');
+  cf=btn.dataset.cf;renderCards();}));
+
+/* ---- modal ---- */
+const modal=$('#modal'), sheet=$('#sheet');
+let lastFocus=null;
+function kv(obj){return '{\n'+Object.entries(obj).map(([k,v])=>`  "${k}": "${v}"`).join(',\n')+'\n}';}
+function openModal(i){
+  const c=DATA.cards[i]; lastFocus=document.activeElement;
+  const snippet=DATA.snippets[c.snip]||DATA.snippets['callback'];
+  const kpi=(c.kpis||[]).map(k=>`<span class="kpi">${esc(k)}</span>`).join('');
+  const cell=(k,v)=>`<div class="cell"><div class="k">${k}</div><div class="v">${esc(v)}</div></div>`;
+  sheet.innerHTML=`
+    <div class="hd">
+      <div class="txt">
+        <div class="vt" style="font-family:var(--font-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">${esc(c.vertical)} · ${esc(c.brand)}</div>
+        <h3 id="mTitle">${esc(c.title)}</h3>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap">
+          <span class="tchip">${esc(c.template)}</span><span class="tchip">${esc(c.channel)}</span><span class="tchip">TTL ${esc(c.ttl)}</span>
+        </div>
+      </div>
+      <button class="x" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="big">${phone(c.mock,{accent:c.accent,title:c.title,body:c.body},false)}</div>
+    <div class="grid5">
+      ${cell('Who',c.who)}${cell('What',c.mech)}
+      ${cell('When',c.when)}${cell('Trigger',c.trigger)}
+    </div>
+    <div class="body">
+      <div class="why"><span class="q">Why the inbox for this</span>${esc(c.why)}</div>
+      <div>
+        <div class="k" style="font-family:var(--font-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Custom key-value payload</div>
+        <div class="codeblock"><div class="ch"><span>payload · illustrative</span><button class="copy" data-copy="kv">Copy</button></div><pre id="kvpre">${esc(kv(c.kv))}</pre></div>
+      </div>
+      <div>
+        <div class="k" style="font-family:var(--font-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">SDK snippet</div>
+        <div class="codeblock"><div class="ch"><span>reference · verify SDK version</span><button class="copy" data-copy="sn">Copy</button></div><pre id="snpre">${esc(snippet)}</pre></div>
+      </div>
+      <div>
+        <div class="k" style="font-family:var(--font-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Outcomes to watch · illustrative</div>
+        <div class="kpis">${kpi}</div>
+      </div>
+    </div>`;
+  modal.classList.add('open'); document.body.style.overflow='hidden';
+  sheet.querySelectorAll('[data-copy]').forEach(btn=>btn.addEventListener('click',()=>{
+    const txt=btn.dataset.copy==='kv'?$('#kvpre').textContent:$('#snpre').textContent;
+    navigator.clipboard?.writeText(txt).then(()=>{btn.textContent='Copied';btn.classList.add('done');
+      setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('done')},1400)}).catch(()=>{});
+  }));
+  $('.x',sheet).focus();
+  trapFocus(modal);
+}
+function closeModal(){modal.classList.remove('open');document.body.style.overflow='';
+  if(lastFocus)lastFocus.focus();}
+modal.addEventListener('click',ev=>{if(ev.target.hasAttribute('data-close'))closeModal();});
+document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&modal.classList.contains('open'))closeModal();});
+function trapFocus(container){
+  container.addEventListener('keydown',ev=>{
+    if(ev.key!=='Tab')return;
+    const f=$$('button, a[href], input, [tabindex]:not([tabindex="-1"])',container).filter(el=>el.offsetParent!==null);
+    if(!f.length)return;const first=f[0],last=f[f.length-1];
+    if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus();}
+    else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus();}
+  });
+}
+
+/* ---- reveal + signature stage ---- */
+let revObs;
+function observeReveals(){
+  if(!revObs){revObs=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');revObs.unobserve(en.target);}})},{rootMargin:'0px 0px -8% 0px'});}
+  $$('.reveal:not(.in)').forEach(el=>revObs.observe(el));
+}
+const stage=$('#stage');
+if(stage){
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){stage.classList.add('play');}
+  else{new IntersectionObserver((es,ob)=>{es.forEach(en=>{if(en.isIntersecting){stage.classList.add('play');ob.disconnect();}})},{threshold:.4}).observe(stage);}
+}
+
+/* ---- intro splash (merged preview) ---- */
+const splash=$('#splash');
+if(splash){
+  document.body.classList.add('splash-on');
+  let opened=false;
+  function openGallery(){
+    if(opened)return; opened=true;
+    splash.classList.add('gone');
+    document.body.classList.remove('splash-on');
+    setTimeout(()=>{ splash.setAttribute('aria-hidden','true'); splash.style.display='none'; },750);
+    window.scrollTo({top:0});
+    const t=$('#top'); if(t){t.setAttribute('tabindex','-1'); t.focus({preventScroll:true});}
+  }
+  $('#sEnter')?.addEventListener('click',openGallery);
+  document.addEventListener('keydown',e=>{
+    if(opened)return;
+    if(e.target && e.target.id==='sTheme')return;
+    if(e.key==='Enter'||e.key==='Escape'||e.key===' '){e.preventDefault();openGallery();}
+  });
+  ['wheel','touchmove'].forEach(ev=>window.addEventListener(ev,()=>openGallery(),{passive:true,once:true}));
+  requestAnimationFrame(()=>$('#sEnter')?.focus());
+}
+
+/* ---- scrollspy nav (position-based, deterministic) ---- */
+const navLinks=$$('.topbar nav a');
+const spySecs=navLinks.map(a=>({a,el:document.getElementById(a.getAttribute('href').slice(1))})).filter(x=>x.el);
+function updateSpy(){
+  const y=window.scrollY+window.innerHeight*0.35;
+  let cur=spySecs[0];
+  for(const s of spySecs){ if(s.el.offsetTop<=y) cur=s; }
+  navLinks.forEach(a=>a.classList.toggle('active', cur && a===cur.a));
+}
+window.addEventListener('scroll',updateSpy,{passive:true});
+window.addEventListener('resize',updateSpy,{passive:true});
+updateSpy();
+
+/* ---- back to top ---- */
+const totop=$('#totop');
+if(totop){
+  totop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  const onScroll=()=>{ totop.classList.toggle('show', window.scrollY>800); };
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+}
+
+/* init */
+renderTreatments('all');
+renderCards();
+observeReveals();
+</script>
+</body></html>

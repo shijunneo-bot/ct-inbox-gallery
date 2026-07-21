@@ -1,0 +1,57 @@
+# CleverTap Field Guide 13: App Inbox + Web Inbox
+
+> A design-first field guide to CleverTap App Inbox and Web Inbox: the persistent message channels that stay on a device or in a web panel after a push has disappeared. Covers 16 inbox design patterns, 90 use cases across 15 verticals, a build-vs-buy spectrum, a push-vs-inbox decision guide, how stats work, and a 20-question FAQ. Fictional brands, illustrative figures, facts grounded in CleverTap documentation as of mid-2026.
+
+Canonical URL: https://shijunneo-bot.github.io/ct-inbox-gallery/
+Author: SJ Neo, Enterprise Customer Success Manager at CleverTap.
+Part of a 13-gallery CleverTap Field Guide network at https://shijunneo-bot.github.io/
+
+## What App Inbox and Web Inbox are
+
+App Inbox is a message centre that persists inside a mobile app; messages stay on the device until they expire or are removed. Web Inbox is the equivalent for a website: a bell, a badge, and a slide-in notification panel that mount into a DOM element you own. Unlike push (which interrupts once and disappears) or SMS (read then buried), inbox messages wait to be opened, which makes them the right home for anything with shelf life: bills, coupons, order status, digests, and reminders.
+
+## Key facts (grounded in CleverTap docs)
+
+- App Inbox templates: four. Simple (title + message), Icon Message (adds an image or icon), Carousel with Content (multiple images with headlines), and Carousel without Content (image only).
+- Time to live (TTL): 1 to 60 days, default 2 days, or Infinite. TTL counts from the campaign sent time.
+- Delivery is session-based: App Inbox messages are fetched on the next app launch or session, not the instant they are sent.
+- CTAs: up to two per message. Each is an Open URL (separate iOS and Android URLs) or a custom key-value action. Tapping the message body returns button index -1.
+- Interaction callback returns two indices: contentPageIndex (0 to n-1 for carousel pages, 0 for non-carousel) and buttonIndex (0, 1, 2, or -1 for the body).
+- Media: image (jpg, png, gif) up to 500KB, video (mp4) up to 50MB, audio (mp3) up to 5MB, at 16:9 or 1:1.
+- SDK gates: App Inbox needs SDK 3.4.0+; key-value buttons 3.6.1 Android / 3.7.1 iOS; shared key-value across messages 5.2.0+.
+- Styling: SDK templates are styled through a config (title, background, tab colours, labels), not free HTML. For pixel-level control, deliver via custom key-value pairs and render your own UI.
+- Message Tags map to inbox tabs; untagged messages fall into a default "All" bucket.
+- Web Inbox: needs the Web SDK plus an Element ID (a DOM node id). Default panel is about 392 by 546 pixels on desktop, full screen on mobile. It shows 5 to 50 messages (default 15) and is fully styled from the dashboard (panel, header, category tabs, cards, unread marker, buttons, badge).
+- Stats: Sent (sent to devices), Viewed (devices that received it; Viewed/Sent), Clicks (Clicks/Sent), CTR (Click/Viewed), Converted users, plus errors and control group. Each stored message counts as a user event.
+
+## Build vs buy (three lanes)
+
+1. Full buy: use CleverTap's four SDK templates, styled by config. Fastest, least custom work, fixed layout.
+2. Hybrid (recommended starting point): deliver the message as custom key-value pairs and render your own UI, while CleverTap keeps segmentation, personalization, TTL, and stats. Full design freedom without leaving the orchestration engine.
+3. Full build: use a Post Action Webhook to trigger your own endpoint, then build storage, TTL, read-state sync, render, and analytics yourself. Maximum freedom, maximum plumbing to maintain.
+The jump from lane 2 to lane 3 adds little design freedom but a lot of engineering to own.
+
+## Push and inbox together
+
+In a push campaign you can enable App Inbox Delivery so the same message persists in the inbox with its own colours and Inbox TTL, and you can enable a Post Action Webhook to fire to your own endpoint. Custom key-value pairs can ride the push payload.
+
+## Verticals covered (15)
+
+Telco, OTT/Streaming, Fintech/Banking, Insurance, E-commerce, Food & Beverage, Ride-hailing, Travel, Gaming/Esports, EdTech, HealthTech, Grocery, News/Media, Loyalty, Classifieds. Six use cases each, ninety in total.
+
+## Caveats
+
+- All performance figures on the page are illustrative and labeled as such. Brands are fictional.
+- Plan and packaging (which tier includes App Inbox and Web Inbox) changes over time; verify entitlements before quoting.
+- A standalone App Inbox live-action campaign does not deliver on an API-triggered event; route via a Journey. This does not apply to Push + App Inbox.
+
+## Sections on the page
+
+- Design explorer: 16 inbox design patterns with structure and brand examples.
+- Anatomy: which parts are dashboard-configurable versus code-side, for app and web.
+- Build vs buy: the three-lane spectrum above.
+- Push + inbox: the two trigger switches (App Inbox Delivery and Post Action Webhook).
+- Decide: an Inbox vs Push vs Native Display comparison table.
+- The gallery: 90 use cases with deep dives (5W1H, key-value payload, SDK snippet, KPIs).
+- Stats: how App Inbox metrics are defined.
+- FAQ: 20 questions on mechanics and styling.
